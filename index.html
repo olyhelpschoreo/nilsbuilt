@@ -11,16 +11,6 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f46e5'/%3E%3Ctext x='50' y='73' font-size='64' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
   <title>Nilsbuilt — websites for small businesses</title>
 
-  <!--
-  ============================================================
-   ONE THING LEFT to make the form work:
-   Replace WEB3FORMS_KEY (search for it below) with a free key
-   from https://web3forms.com — type your email there, copy the
-   key it sends you, paste it in. Then sign-ups will email you.
-   (Your name, email, and price are already filled in.)
-  ============================================================
-  -->
-
   <style>
     :root {
       --ink: #0f172a;
@@ -283,8 +273,8 @@
         <h2>Get your website</h2>
         <p class="lead">Takes a minute — it's a free quote, and you don't pay until you've seen and approved a preview.</p>
         <form class="signup" id="signup-form">
-          <!-- EDIT: WEB3FORMS_KEY (get a free key at web3forms.com) -->
-          <input type="hidden" name="access_key" value="WEB3FORMS_KEY" />
+          <!-- Web3Forms public access key — safe in client-side code; it can only deliver mail to the account owner. -->
+          <input type="hidden" name="access_key" value="c4a0a13f-0577-48ca-911d-5884ea23847b" />
           <input type="hidden" name="subject" value="New website request" />
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
