@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
-  <meta name="description" content="Nilsbuilt designs and builds simple, good-looking one-page websites for small businesses — fast and affordable." />
-  <meta property="og:title" content="Nilsbuilt — websites for small businesses" />
-  <meta property="og:description" content="Simple, good-looking websites for small businesses. Fast, affordable, made for you." />
+  <meta name="description" content="Nilsbuilt designs and builds simple, good-looking one-page websites for small businesses in Stockholm — fast and affordable." />
+  <meta property="og:title" content="Nilsbuilt — websites for small businesses in Stockholm" />
+  <meta property="og:description" content="Simple, good-looking websites for small businesses in Stockholm. Fast, affordable, made for you." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f46e5'/%3E%3Ctext x='50' y='73' font-size='64' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
-  <title>Nilsbuilt — websites for small businesses</title>
+  <title>Nilsbuilt — websites for small businesses in Stockholm</title>
 
   <style>
     :root {
@@ -52,7 +52,10 @@
     .btn.ghost:hover { background: var(--surface); }
     a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-    .hero { padding: 84px 0 64px; text-align: center; }
+    .hero {
+      padding: 84px 0 64px; text-align: center;
+      background: radial-gradient(72% 52% at 50% -8%, #eef2ff 0%, rgba(255,255,255,0) 62%);
+    }
     .hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.03em; }
     .hero p { font-size: clamp(17px, 2.5vw, 20px); color: var(--muted); max-width: 640px; margin: 22px auto 32px; }
     .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -111,6 +114,28 @@
     .mockup .bar .dot { width: 11px; height: 11px; border-radius: 50%; }
     .mockup .bar .url { flex: 1; margin-left: 8px; background: #fff; border: 1px solid var(--line); border-radius: 7px; font-size: 12px; color: var(--muted); padding: 5px 11px; }
     .mockup .screen { padding: 26px; }
+    .mockup .screen.flush { padding: 0; }
+    .mockup-caption { text-align: center; color: var(--muted); font-size: 14px; margin: 16px auto 0; max-width: 540px; }
+
+    /* the sample small-business site shown inside the browser mockup */
+    .mini-nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+    .mini-brand { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; color: #7c2d12; }
+    .mini-links { display: flex; gap: 13px; font-size: 11px; color: var(--muted); font-weight: 500; }
+    .mini-photo {
+      padding: 26px 18px; text-align: center;
+      background: linear-gradient(135deg, #f59e0b 0%, #b45309 55%, #7c2d12 100%);
+    }
+    .mini-photo h4 { color: #fff; font-size: 19px; letter-spacing: -0.02em; line-height: 1.2; }
+    .mini-photo p { color: rgba(255,255,255,0.88); font-size: 11px; margin-top: 5px; }
+    .mini-cta { display: inline-block; margin-top: 12px; background: #fff; color: #7c2d12; font-size: 11px; font-weight: 700; padding: 7px 15px; border-radius: 7px; }
+    .mini-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+    .mini-info div { background: #fff; padding: 12px 8px; text-align: center; }
+    .mini-info strong { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 700; }
+    .mini-info span { font-size: 12px; font-weight: 600; }
+
+    .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px 22px; margin-top: 26px; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .trust span { display: inline-flex; align-items: center; gap: 7px; }
+    .trust svg { color: var(--accent); flex: none; }
 
     .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
     .work-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; text-align: center; display: flex; flex-direction: column; }
@@ -147,7 +172,7 @@
   <main>
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Websites for small businesses</span>
+        <span class="eyebrow">Websites for small businesses in Stockholm</span>
         <h1>A clean website for your business, built fast.</h1>
         <p>Hi — I'm Nils. I design and build simple, good-looking websites without the big-agency price tag. Tell me about your business and I'll build you a site you're proud of.</p>
         <div class="hero-actions">
@@ -155,28 +180,37 @@
           <a href="#how" class="btn ghost">How it works</a>
         </div>
 
+        <p class="trust">
+          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free preview before you pay</span>
+          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No monthly fees</span>
+          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ready in days</span>
+        </p>
+
         <div class="mockup" aria-hidden="true">
           <div class="bar">
             <span class="dot" style="background:#f87171"></span>
             <span class="dot" style="background:#fbbf24"></span>
             <span class="dot" style="background:#34d399"></span>
-            <span class="url">yourbusiness.se</span>
+            <span class="url">cafelyra.se</span>
           </div>
-          <div class="screen">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-              <div style="width:74px; height:11px; border-radius:6px; background:var(--ink);"></div>
-              <div style="display:flex; gap:8px;">
-                <div style="width:26px; height:8px; border-radius:4px; background:var(--line);"></div>
-                <div style="width:26px; height:8px; border-radius:4px; background:var(--line);"></div>
-                <div style="width:30px; height:8px; border-radius:4px; background:var(--accent);"></div>
-              </div>
+          <div class="screen flush">
+            <div class="mini-nav">
+              <span class="mini-brand">Café Lyra</span>
+              <span class="mini-links"><span>Menu</span><span>Hours</span><span>Find us</span></span>
             </div>
-            <div style="height:18px; width:78%; border-radius:7px; background:var(--ink); margin-bottom:11px;"></div>
-            <div style="height:10px; width:96%; border-radius:5px; background:var(--line); margin-bottom:7px;"></div>
-            <div style="height:10px; width:86%; border-radius:5px; background:var(--line); margin-bottom:20px;"></div>
-            <div style="height:30px; width:130px; border-radius:9px; background:var(--accent);"></div>
+            <div class="mini-photo">
+              <h4>Fresh bread, every morning.</h4>
+              <p>Bakery &amp; coffee house on Storgatan</p>
+              <span class="mini-cta">Book a table</span>
+            </div>
+            <div class="mini-info">
+              <div><strong>Open</strong><span>7–17</span></div>
+              <div><strong>Call</strong><span>070-123 45 67</span></div>
+              <div><strong>Find us</strong><span>Storgatan 4</span></div>
+            </div>
           </div>
         </div>
+        <p class="mockup-caption">An example of the kind of one-page site I build.</p>
       </div>
     </section>
 
@@ -319,6 +353,14 @@
           <div class="qa">
             <h3>Do I pay upfront?</h3>
             <p>No. You see a preview first and only pay once you're happy with it.</p>
+          </div>
+          <div class="qa">
+            <h3>Do I own the website?</h3>
+            <p>Yes — the design, the words and the pictures are yours to keep. If you ever want to move it elsewhere, you can take it with you.</p>
+          </div>
+          <div class="qa">
+            <h3>Is there a monthly fee?</h3>
+            <p>Not from me. Your site is hosted free, so once it's paid for it simply stays online. A personal address like <em>yourbusiness.se</em> is optional and costs a small yearly fee paid straight to the domain provider.</p>
           </div>
         </div>
       </div>
