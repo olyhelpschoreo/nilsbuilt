@@ -64,12 +64,12 @@
                 <span class="mini-links"><span>Meny</span><span>Öppettider</span><span>Hitta hit</span></span>
               </div>
               <div class="mini-photo">
-                <h4>Nybakat bröd varje morgon.</h4>
+                <h4>Nybakat innan stan vaknar.</h4>
                 <p>Bageri &amp; kaffehus på Storgatan</p>
-                <span class="mini-cta">Boka bord</span>
+                <span class="mini-cta">Se menyn</span>
               </div>
               <div class="mini-info">
-                <div><strong>Öppet</strong><span>7–17</span></div>
+                <div><strong>Öppet</strong><span>Vard. 7–17</span></div>
                 <div><strong>Ring</strong><span>070-123 45 67</span></div>
                 <div><strong>Hitta hit</strong><span>Storgatan 4</span></div>
               </div>
@@ -80,8 +80,8 @@
             <div class="pscreen">
               <div class="pnav">Café Lyra</div>
               <div class="pphoto">
-                <h5>Nybakat bröd varje morgon.</h5>
-                <span>Boka bord</span>
+                <h5>Nybakat innan stan vaknar.</h5>
+                <span>Se menyn</span>
               </div>
               <div class="pinfo"><i></i><i class="s"></i><i></i><i class="s"></i></div>
             </div>
@@ -133,7 +133,7 @@
             <li>En egen länk att dela</li>
             <li>Gratis förhandsvisning innan du betalar</li>
           </ul>
-          <p style="color: var(--muted); margin-top: 16px;">Berätta vad du behöver, så skickar jag en exakt offert — gratis och utan press.</p>
+          <p style="color: var(--muted); margin-top: 16px;">Berätta vad du behöver, så skickar jag ett exakt pris — gratis och utan press.</p>
           <a href="#signup" class="btn" style="margin-top: 22px;">Få en gratis offert</a>
         </div>
       </div>
@@ -145,7 +145,7 @@
         <p class="lead reveal">De flesta små företag väljer mellan dessa. Så här ser de ut sida vid sida.</p>
         <div class="compare-wrap reveal">
           <table class="compare">
-            <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Jämförelse av olika sätt att få en hemsida</caption>
+            <caption class="sr-only">Jämförelse av olika sätt att få en hemsida</caption>
             <thead>
               <tr>
                 <th scope="col">Alternativ</th>
@@ -172,14 +172,14 @@
               </tr>
               <tr>
                 <th scope="row">Bygga själv (Wix, Squarespace)</th>
-                <td data-label="Kostnad">~200 kr/mån, för alltid</td>
+                <td data-label="Kostnad">ofta ~200 kr/mån, för alltid</td>
                 <td data-label="Din tid">Många kvällar</td>
                 <td data-label="Ser proffsig ut">Kanske</td>
                 <td data-label="Du äger den"><span class="no">Nej</span></td>
               </tr>
               <tr>
                 <th scope="row">En webbyrå</th>
-                <td data-label="Kostnad">15 000 kr och uppåt</td>
+                <td data-label="Kostnad">ofta 15 000 kr och uppåt</td>
                 <td data-label="Din tid">Möten och underlag</td>
                 <td data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
                 <td data-label="Du äger den"><span class="yes">Ja</span></td>
@@ -232,10 +232,10 @@
             </div>
           </div>
           <div class="work-card reveal">
-            <div class="work-thumb salon" aria-hidden="true">Frisörsalong</div>
+            <div class="work-thumb salon" aria-hidden="true">Frisersalong</div>
             <div class="work-body">
               <h3>Salong Nord</h3>
-              <p>En frisörsalong: prislista, stylisterna, öppettider och bokning. Samma idé, helt annan känsla.</p>
+              <p>En frisersalong: prislista, stylisterna, öppettider och bokning. Samma idé, helt annan känsla.</p>
               <a href="demo/salong-nord/" class="btn ghost">Öppna Salong Nord →</a>
             </div>
           </div>
@@ -316,7 +316,7 @@
           </div>
           <div class="qa reveal">
             <h3>Finns det någon månadsavgift?</h3>
-            <p>Inte från mig. Din sida ligger på ett gratis webbhotell, så när den är betald ligger den kvar. En egen adress som <em>dittforetag.se</em> är valfri och kostar en liten årsavgift direkt till domänleverantören.</p>
+            <p>Inte från mig. Din sida ligger på ett gratis webbhotell, så du betalar ingen månadsavgift till mig för att den ska ligga kvar. En egen adress som <em>dittforetag.se</em> är valfri och kostar en liten årsavgift direkt till domänleverantören.</p>
           </div>
         </div>
       </div>
@@ -352,7 +352,7 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      if (btn.disabled) return; // ignorera en andra klick medan en är på väg
+      if (btn.disabled) return; // ignorera ett andra klick medan en är på väg
       btn.disabled = true;
       statusEl.style.color = "#64748b";
       statusEl.textContent = "Skickar…";
@@ -385,7 +385,7 @@
       }
     });
 
-    // Mjuk inblandning när sektioner rullas in i bild.
+    // Mjuk intoning när sektioner rullas in i bild.
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealables = document.querySelectorAll(".reveal");
     if (reduceMotion || !("IntersectionObserver" in window)) {
