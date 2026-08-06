@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salong Nord — frisersalong på Kungsholmen, Stockholm</title>
+<meta name="description" content="Salong Nord är en frisersalong på Hantverkargatan 12 i Stockholm. Klippning, färg, slingor och styling för alla. Boka tid på 070-987 65 43.">
+<meta name="theme-color" content="#12171a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Salong Nord — frisersalong på Kungsholmen, Stockholm">
+<meta property="og:description" content="Klippning, färg, slingor och styling för alla. Elin och Johan tar emot på Hantverkargatan 12. Boka tid på 070-987 65 43.">
+<meta property="og:locale" content="sv_SE">
+<style>
+/* ------------------------------------------------------------------
+   Salong Nord — identitet
+   Bläck (#12171a) · krita (#f5f4f1) · sten (#dcdcd6) · eukalyptus (#4f7169)
+   ------------------------------------------------------------------ */
+:root{
+  --ink:#12171a;
+  --ink-soft:#2a3338;
+  --ink-line:#20282c;
+  --chalk:#f5f4f1;
+  --paper:#fbfbf9;
+  --stone:#dcdcd6;
+  --stone-line:#c9c9c1;
+  --muted:#5a666c;
+  --muted-dark:#a9b4b0;
+  --accent:#4f7169;
+  --accent-deep:#3d5a53;
+  --accent-light:#8fb0a6;
+  --focus:#1f6feb;
+  --maxw:1180px;
+  --gut:clamp(1.25rem, 5vw, 4rem);
+  --step--1:clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);
+  --step-0:clamp(1rem, 0.96rem + 0.19vw, 1.125rem);
+  --step-1:clamp(1.1875rem, 1.11rem + 0.36vw, 1.4375rem);
+  --step-2:clamp(1.4375rem, 1.28rem + 0.75vw, 1.9375rem);
+  --step-3:clamp(1.75rem, 1.44rem + 1.5vw, 2.75rem);
+  --step-4:clamp(2.25rem, 1.55rem + 3.4vw, 4.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--chalk);
+  color:var(--ink-soft);
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  font-size:var(--step-0);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{
+  font-family:ui-serif,Georgia,"Iowan Old Style","Times New Roman",Times,serif;
+  color:var(--ink);
+  font-weight:600;
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin:0;
+  text-wrap:balance;
+}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+  border-radius:2px;
+}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--ink);color:var(--chalk);
+  padding:.75rem 1.1rem;border-radius:0 0 6px 0;font-size:var(--step--1);
+}
+.skip:focus{left:0}
+
+/* ---------- gemensamma byggstenar ---------- */
+.eyebrow{
+  font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:600;color:var(--accent-deep);
+  display:flex;align-items:center;gap:.6rem;margin:0;
+}
+.eyebrow::before{
+  content:"";width:1.75rem;height:1px;background:var(--accent);flex:none;
+}
+.eyebrow--onDark{color:var(--accent-light)}
+.eyebrow--onDark::before{background:var(--accent-light)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  font:inherit;font-size:var(--step--1);font-weight:600;letter-spacing:.02em;
+  padding:.85rem 1.45rem;border-radius:999px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn--solid{background:var(--ink);color:var(--chalk)}
+.btn--solid:hover{background:var(--accent-deep)}
+.btn--ghost{border-color:var(--stone-line);color:var(--ink);background:transparent}
+.btn--ghost:hover{border-color:var(--ink);background:rgba(18,23,26,.04)}
+.btn--ghostDark{border-color:#39444a;color:var(--chalk);background:transparent}
+.btn--ghostDark:hover{border-color:var(--accent-light);background:rgba(245,244,241,.06)}
+.btn--onDark{background:var(--chalk);color:var(--ink)}
+.btn--onDark:hover{background:var(--accent-light)}
+.btn--wide{width:100%}
+
+section{scroll-margin-top:5.5rem}
+.band{padding-block:clamp(3.5rem,9vw,7rem)}
+.band--paper{background:var(--paper)}
+.band--ink{background:var(--ink);color:var(--muted-dark)}
+.band--ink h2,.band--ink h3{color:var(--chalk)}
+
+/* redaktionell tvåkolumnsrytm */
+.split{display:grid;gap:clamp(2rem,5vw,3.5rem)}
+@media (min-width:60rem){
+  .split{grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(3rem,6vw,6rem)}
+  .split--wide{grid-template-columns:minmax(0,18rem) minmax(0,1fr)}
+}
+.split__head{display:flex;flex-direction:column;gap:.9rem;align-self:start}
+.split__head h2{font-size:var(--step-3)}
+.split__lead{color:var(--muted);font-size:var(--step--1);max-width:34ch}
+.band--ink .split__lead{color:var(--muted-dark)}
+.idx{
+  font-family:ui-sans-serif,system-ui,sans-serif;
+  font-size:.6875rem;font-weight:600;letter-spacing:.16em;color:var(--muted);
+}
+.band--ink .idx{color:var(--muted-dark)}
+
+/* ---------- sidhuvud ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,244,241,.88);
+  backdrop-filter:saturate(150%) blur(10px);
+  -webkit-backdrop-filter:saturate(150%) blur(10px);
+  border-bottom:1px solid var(--stone-line);
+}
+.site-header__in{
+  display:flex;align-items:center;gap:1rem;
+  min-height:4.25rem;
+}
+.brand{
+  display:flex;align-items:center;gap:.6rem;text-decoration:none;flex:none;
+  color:var(--ink);
+}
+.brand__mark{width:1.5rem;height:1.5rem;flex:none;color:var(--accent)}
+.brand__name{
+  font-family:ui-serif,Georgia,serif;
+  font-size:1.0625rem;font-weight:600;letter-spacing:.02em;line-height:1;
+  white-space:nowrap;
+}
+.brand__name span{color:var(--accent-deep)}
+.site-nav{margin-left:auto;display:none}
+.site-nav ul{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
+.site-nav a{
+  text-decoration:none;font-size:var(--step--1);color:var(--ink-soft);
+  padding-block:.35rem;border-bottom:1px solid transparent;
+}
+.site-nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.header-cta{margin-left:auto;padding:.6rem 1.05rem}
+@media (min-width:56rem){
+  .site-nav{display:block}
+  .site-nav+.header-cta{margin-left:clamp(1rem,2.4vw,2rem)}
+}
+@media (max-width:22.5rem){
+  .brand__name{font-size:.9375rem}
+  .header-cta{padding:.55rem .85rem}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--ink);color:var(--muted-dark);overflow:hidden;position:relative}
+.hero__in{
+  display:grid;gap:clamp(2.5rem,6vw,4rem);
+  padding-block:clamp(3.25rem,9vw,6.5rem);
+  align-items:center;
+}
+@media (min-width:64rem){
+  .hero__in{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+}
+.hero__copy{display:flex;flex-direction:column;gap:1.5rem;max-width:34rem}
+.hero h1{
+  color:var(--chalk);font-size:var(--step-4);letter-spacing:-0.03em;line-height:1.02;
+}
+.hero h1 em{font-style:italic;color:var(--accent-light)}
+.hero__lead{font-size:var(--step-1);line-height:1.5;color:var(--muted-dark);max-width:30ch}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero__facts{
+  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+  padding-top:1.5rem;margin-top:.25rem;
+  border-top:1px solid var(--ink-line);
+  font-size:var(--step--1);color:var(--muted-dark);
+}
+.hero__facts li{display:flex;align-items:center;gap:.5rem}
+.hero__facts svg{width:1.0625rem;height:1.0625rem;flex:none;color:var(--accent-light)}
+
+/* signaturbild: slingor */
+.strands{
+  position:relative;border-radius:2px;
+  aspect-ratio:5/6;width:100%;max-width:32rem;margin-inline:auto;
+  background:
+    radial-gradient(120% 90% at 78% 8%, rgba(143,176,166,.20), transparent 62%),
+    linear-gradient(168deg,#192024 0%,#12171a 58%,#161d20 100%);
+  border:1px solid var(--ink-line);
+  overflow:hidden;
+}
+.strands svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.strands__rule{
+  position:absolute;left:1.5rem;right:1.5rem;bottom:1.5rem;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
+  font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted-dark);
+}
+.strands__rule span{white-space:nowrap}
+@media (max-width:64rem){.strands{aspect-ratio:4/3;max-width:34rem}}
+@media (max-width:26rem){.strands__rule{display:none}}
+.drift-a,.drift-b{transform-origin:center}
+@media (prefers-reduced-motion:no-preference){
+  .drift-a{animation:drift 19s ease-in-out infinite}
+  .drift-b{animation:drift 25s ease-in-out infinite reverse}
+}
+@keyframes drift{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(-14px,7px,0)}
+}
+
+/* ---------- prislista ---------- */
+.price-group+.price-group{margin-top:clamp(2.25rem,4vw,3rem)}
+.price-group h3{
+  font-size:var(--step-1);
+  padding-bottom:.65rem;border-bottom:1px solid var(--ink);
+  margin-bottom:.35rem;
+}
+.price-row{padding-block:.85rem;border-bottom:1px solid var(--stone-line)}
+.price-row__line{display:flex;align-items:flex-end;gap:.4rem}
+.price-row__name{
+  flex:0 1 auto;min-width:0;
+  font-weight:600;color:var(--ink);font-size:var(--step-0);line-height:1.3;
+}
+.price-row__dots{
+  flex:1 1 1.5rem;min-width:.75rem;height:.62em;
+  border-bottom:1px dotted var(--stone-line);
+}
+.price-row__cost{
+  flex:none;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;
+  white-space:nowrap;font-size:var(--step-0);line-height:1.3;
+}
+.price-row__cost em{font-style:normal;font-weight:400;color:var(--muted);font-size:var(--step--1)}
+.price-row__desc{
+  display:block;margin-top:.25rem;max-width:46ch;
+  font-size:var(--step--1);color:var(--muted);line-height:1.45;
+}
+.price-note{
+  margin-top:1.75rem;padding:1.15rem 1.25rem;
+  background:var(--chalk);border-left:2px solid var(--accent);
+  font-size:var(--step--1);color:var(--muted);max-width:52ch;
+}
+.band--paper .price-note{background:#f0efea}
+
+/* ---------- stylister ---------- */
+.people{display:grid;gap:clamp(1.5rem,3vw,2rem)}
+@media (min-width:38rem){.people{grid-template-columns:1fr 1fr}}
+.person{
+  display:flex;flex-direction:column;gap:1.1rem;
+  padding:clamp(1.5rem,3vw,2rem);
+  background:var(--paper);border:1px solid var(--stone-line);border-radius:3px;
+}
+.band--paper .person{background:var(--chalk)}
+.person__avatar{width:5.5rem;height:5.5rem;flex:none}
+.person h3{font-size:var(--step-2)}
+.person__role{
+  font-size:.6875rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:600;color:var(--accent-deep);margin-top:.4rem;
+}
+.person p{color:var(--muted);font-size:var(--step--1)}
+.person__tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;padding-top:.35rem}
+.person__tags li{
+  font-size:.75rem;padding:.28rem .7rem;border-radius:999px;
+  border:1px solid var(--stone-line);color:var(--muted);
+}
+
+/* ---------- öppettider ---------- */
+.hours{width:100%;border-collapse:collapse;text-align:left;max-width:34rem}
+.hours caption{text-align:left;font-size:var(--step--1);color:var(--muted-dark);padding-bottom:1rem}
+.hours th,.hours td{
+  padding:.9rem 0;border-bottom:1px solid var(--ink-line);
+  font-weight:400;font-size:var(--step-0);
+}
+.hours th{color:var(--chalk);font-weight:600}
+.hours td{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted-dark)}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:0}
+.hours .is-closed td{color:#8d9a97}
+.hours-aside{
+  margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--ink-line);
+  font-size:var(--step--1);color:var(--muted-dark);max-width:46ch;
+}
+
+/* ---------- boka ---------- */
+.booking{display:grid;gap:clamp(2rem,4vw,3rem)}
+@media (min-width:56rem){.booking{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}}
+.form{display:grid;gap:1.1rem}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field label{font-size:var(--step--1);font-weight:600;color:var(--ink)}
+.field .hint{font-size:.75rem;color:var(--muted);font-weight:400}
+.field input,.field select,.field textarea{
+  font:inherit;font-size:var(--step--1);color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--stone-line);border-radius:3px;
+  padding:.75rem .85rem;width:100%;
+  transition:border-color .16s ease;
+}
+.field textarea{min-height:6.5rem;resize:vertical}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:#a8a8a0}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline-offset:1px}
+.field select{
+  appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 49%,var(--ink-soft) 50%,var(--ink-soft) 58%,transparent 59%),
+                   linear-gradient(-45deg,transparent 49%,var(--ink-soft) 50%,var(--ink-soft) 58%,transparent 59%);
+  background-position:calc(100% - 1.15rem) 1.25rem, calc(100% - 0.72rem) 1.25rem;
+  background-size:.45rem .45rem;background-repeat:no-repeat;
+  padding-right:2.5rem;
+}
+@media (min-width:34rem){.form__pair{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}}
+.form__foot{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:.35rem}
+.form__foot .btn{flex:1 1 12rem}
+.form__legal{font-size:.75rem;color:var(--muted);flex:1 1 14rem;min-width:0}
+.form-status{
+  font-size:var(--step--1);border-radius:3px;
+  border-left:2px solid var(--accent);
+  background:#eef1ef;color:#2f4a44;
+  padding:.9rem 1rem;
+}
+.form-status:empty{display:none}
+.form-status svg{width:1.125rem;height:1.125rem;vertical-align:-.2em;margin-right:.45rem;color:var(--accent-deep)}
+
+.contact-card{
+  display:flex;flex-direction:column;gap:1.5rem;
+  padding:clamp(1.5rem,3vw,2rem);
+  background:var(--ink);color:var(--muted-dark);border-radius:3px;
+  align-self:start;
+}
+.contact-card h3{font-size:var(--step-1);color:var(--chalk)}
+.contact-card p{font-size:var(--step--1)}
+.contact-list{display:flex;flex-direction:column;gap:1.15rem}
+.contact-list li{display:flex;gap:.85rem;align-items:flex-start}
+.contact-list svg{width:1.25rem;height:1.25rem;flex:none;color:var(--accent-light);margin-top:.15rem}
+.contact-list .k{
+  display:block;font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted-dark);margin-bottom:.15rem;
+}
+.contact-list .v{color:var(--chalk);font-size:var(--step-0);text-decoration:none;line-height:1.35;display:block}
+.contact-list a.v:hover{color:var(--accent-light)}
+.contact-list address{font-style:normal}
+
+/* ---------- hitta hit ---------- */
+.find{display:grid;gap:clamp(1.5rem,3vw,2rem)}
+@media (min-width:44rem){.find{grid-template-columns:1fr 1fr}}
+.find__block{
+  padding:clamp(1.35rem,3vw,1.9rem);
+  border:1px solid var(--stone-line);border-radius:3px;background:var(--paper);
+  display:flex;flex-direction:column;gap:.6rem;
+}
+.find__block h3{font-size:var(--step-1)}
+.find__block p,.find__block address{font-size:var(--step--1);color:var(--muted);font-style:normal}
+.find__block .big{
+  font-family:ui-serif,Georgia,serif;font-size:var(--step-2);color:var(--ink);
+  text-decoration:none;letter-spacing:-0.01em;white-space:nowrap;
+}
+.find__block a.big:hover{color:var(--accent-deep)}
+.find__list{display:flex;flex-direction:column;gap:.55rem;margin-top:.25rem}
+.find__list li{display:flex;gap:.6rem;font-size:var(--step--1);color:var(--muted)}
+.find__list svg{width:1.0625rem;height:1.0625rem;flex:none;color:var(--accent);margin-top:.25rem}
+
+/* ---------- sidfot ---------- */
+.site-footer{background:var(--ink);color:var(--muted-dark);padding-block:clamp(2.5rem,5vw,4rem)}
+.site-footer h2{font-size:var(--step-2);color:var(--chalk);max-width:18ch}
+.footer-top{
+  display:grid;gap:2rem;padding-bottom:2.5rem;border-bottom:1px solid var(--ink-line);
+}
+@media (min-width:48rem){.footer-top{grid-template-columns:minmax(0,1fr) auto;align-items:end}}
+.footer-bottom{
+  display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between;
+  padding-top:1.75rem;font-size:.8125rem;
+}
+.footer-bottom ul{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+.footer-bottom a{text-decoration:none}
+.footer-bottom a:hover{color:var(--chalk)}
+.demo-note{
+  font-size:.75rem;color:#8d9a97;max-width:60ch;
+  padding-top:1.25rem;
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#innehall">Hoppa till innehållet</a>
+
+<header class="site-header">
+  <div class="wrap site-header__in">
+    <a class="brand" href="#top">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <path d="M3 20C3 12 8 4 12 4s9 8 9 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M7 20c0-6 3-11 5-11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+      </svg>
+      <span class="brand__name">Salong <span>Nord</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Huvudmeny">
+      <ul>
+        <li><a href="#priser">Prislista</a></li>
+        <li><a href="#stylister">Stylister</a></li>
+        <li><a href="#oppettider">Öppettider</a></li>
+        <li><a href="#hitta">Hitta hit</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--solid header-cta" href="#boka">Boka tid</a>
+  </div>
+</header>
+
+<main id="innehall">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-rubrik">
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--onDark">Frisersalong · Kungsholmen</p>
+        <h1 id="hero-rubrik">Ett klipp som sitter kvar <em>långt efter</em> att du gått härifrån.</h1>
+        <p class="hero__lead">Två stolar, gott om tid och ingen stress. Vi klipper, färgar och stylar — för alla, oavsett hårtyp.</p>
+        <div class="hero__actions">
+          <a class="btn btn--onDark" href="#boka">Boka tid</a>
+          <a class="btn btn--ghostDark" href="#priser">Se prislistan</a>
+        </div>
+        <ul class="hero__facts">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 7v5.2l3.2 1.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Tis–fre 10–19, lör 10–16
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            Hantverkargatan 12
+          </li>
+        </ul>
+      </div>
+
+      <div class="strands">
+        <svg viewBox="0 0 400 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <path id="sn-strand" d="M-60 0C40 60 120 -30 210 40S350 90 470 30"/>
+            <path id="sn-strand-b" d="M-60 0C60 40 110 -50 220 20S360 60 470 -10"/>
+            <linearGradient id="sn-fade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8fb0a6" stop-opacity=".05"/>
+              <stop offset=".45" stop-color="#8fb0a6" stop-opacity=".85"/>
+              <stop offset="1" stop-color="#f5f4f1" stop-opacity=".55"/>
+            </linearGradient>
+          </defs>
+          <g stroke="url(#sn-fade)" fill="none" stroke-width="1.1" stroke-linecap="round">
+            <g class="drift-a">
+              <use href="#sn-strand" y="46"/>
+              <use href="#sn-strand-b" y="82"/>
+              <use href="#sn-strand" y="118"/>
+              <use href="#sn-strand-b" y="154"/>
+              <use href="#sn-strand" y="190"/>
+              <use href="#sn-strand-b" y="226"/>
+            </g>
+            <g class="drift-b" opacity=".72">
+              <use href="#sn-strand-b" y="262"/>
+              <use href="#sn-strand" y="298"/>
+              <use href="#sn-strand-b" y="334"/>
+              <use href="#sn-strand" y="370"/>
+              <use href="#sn-strand-b" y="406"/>
+              <use href="#sn-strand" y="442"/>
+            </g>
+          </g>
+          <circle cx="316" cy="96" r="52" fill="none" stroke="#8fb0a6" stroke-width="1" opacity=".45"/>
+          <circle cx="316" cy="96" r="86" fill="none" stroke="#8fb0a6" stroke-width="1" opacity=".2"/>
+        </svg>
+        <p class="strands__rule">
+          <span>Est. 2016</span>
+          <span>Stockholm</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRISLISTA ============ -->
+  <section class="band band--paper" id="priser" aria-labelledby="priser-rubrik">
+    <div class="wrap split split--wide">
+      <div class="split__head">
+        <p class="idx">01 — Prislista</p>
+        <h2 id="priser-rubrik">Priser utan överraskningar</h2>
+        <p class="split__lead">Samma pris oavsett vem av oss du bokar. Vi tar kort, Swish och kontanter.</p>
+      </div>
+
+      <div>
+        <div class="price-group">
+          <h3>Klippning</h3>
+          <ul>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Klippning dam</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">750&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Konsultation, tvätt, klippning och fön</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Klippning herr</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">550&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Sax eller maskin, tvätt ingår</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Klippning barn</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">350&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Till och med 12 år</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Putsning av lugg</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">150&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Mellan ordinarie klippningar</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Skägg och kantning</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">300&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Trimning och rakning med kniv</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-group">
+          <h3>Färg och slingor</h3>
+          <ul>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Färg, hela huvudet</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost"><em>från</em> 1&#160;400&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Inklusive tvätt och styling</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Bottenfärg</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost"><em>från</em> 1&#160;200&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Utväxt upp till tre centimeter</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Slingor, halva huvudet</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost"><em>från</em> 1&#160;600&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Folieslingor i topp och runt ansiktet</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Slingor, hela huvudet</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost"><em>från</em> 2&#160;100&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Balayage eller folie</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Toning och glans</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost"><em>från</em> 900&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Fräschar upp färgen mellan besöken</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-group">
+          <h3>Styling och vård</h3>
+          <ul>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Fön och styling</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">450&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Tvätt, fön och form</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Uppsättning</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost"><em>från</em> 950&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Bröllop, fest och examen</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Klippning och fön</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">950&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Klippning dam med full styling</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row__line">
+                <span class="price-row__name">Inpackning</span>
+                <span class="price-row__dots" aria-hidden="true"></span>
+                <span class="price-row__cost">250&#160;kr</span>
+              </span>
+              <span class="price-row__desc">Djupvård, läggs till valfri behandling</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="price-note">
+          Färgbehandlingar sätts efter hårets längd, tjocklek och hur lång tid arbetet tar. Du får alltid ett pris av oss innan vi börjar — ingen räkning ska komma som en överraskning. Studentrabatt 15&#160;% tisdag till torsdag.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STYLISTER ============ -->
+  <section class="band" id="stylister" aria-labelledby="stylister-rubrik">
+    <div class="wrap split split--wide">
+      <div class="split__head">
+        <p class="idx">02 — Stylister</p>
+        <h2 id="stylister-rubrik">Två stolar, två hantverkare</h2>
+        <p class="split__lead">Vi är en liten salong med flit. Du får samma person varje gång, om du vill det.</p>
+      </div>
+
+      <div class="people">
+        <article class="person">
+          <svg class="person__avatar" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <circle cx="48" cy="48" r="47" fill="#eceee9" stroke="#c9c9c1"/>
+            <path d="M48 8a40 40 0 0 1 40 40" fill="none" stroke="#4f7169" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 74c6-16 14-26 22-30" fill="none" stroke="#8fb0a6" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="48" y="62" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="38" font-weight="600" fill="#12171a">E</text>
+          </svg>
+          <div>
+            <h3>Elin</h3>
+            <p class="person__role">Färgspecialist</p>
+          </div>
+          <p>Elin har arbetat med färg i tolv år och tycker fortfarande att de finaste resultaten är de man knappt märker. Hon är den du ska boka om du vill gå ljusare utan att håret tar stryk, eller om du är trött på en färg som någon annan lagt.</p>
+          <ul class="person__tags">
+            <li>Balayage</li>
+            <li>Ljusning</li>
+            <li>Långt hår</li>
+          </ul>
+        </article>
+
+        <article class="person">
+          <svg class="person__avatar" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+            <circle cx="48" cy="48" r="47" fill="#eceee9" stroke="#c9c9c1"/>
+            <path d="M88 48a40 40 0 0 1-40 40" fill="none" stroke="#4f7169" stroke-width="2" stroke-linecap="round"/>
+            <path d="M76 22c-6 16-14 26-22 30" fill="none" stroke="#8fb0a6" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="48" y="62" text-anchor="middle" font-family="ui-serif, Georgia, serif" font-size="38" font-weight="600" fill="#12171a">J</text>
+          </svg>
+          <div>
+            <h3>Johan</h3>
+            <p class="person__role">Klippning och skägg</p>
+          </div>
+          <p>Johan har stått bakom stolen i femton år och är snabb utan att stressa. Han är noggrann med kantning, kort hår och allt som ska se lika bra ut på tredje veckan som första dagen — och han klipper gärna barn.</p>
+          <ul class="person__tags">
+            <li>Kort hår</li>
+            <li>Skäggvård</li>
+            <li>Barnklippning</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÖPPETTIDER ============ -->
+  <section class="band band--ink" id="oppettider" aria-labelledby="oppettider-rubrik">
+    <div class="wrap split split--wide">
+      <div class="split__head">
+        <p class="idx">03 — Öppettider</p>
+        <h2 id="oppettider-rubrik">När vi står i salongen</h2>
+        <p class="split__lead">Sista bokningsbara tiden är en timme före stängning. Ring gärna samma dag — det blir ofta luckor.</p>
+      </div>
+
+      <div>
+        <table class="hours">
+          <caption>Öppettider på Hantverkargatan 12</caption>
+          <tbody>
+            <tr><th scope="row">Tisdag</th><td>10–19</td></tr>
+            <tr><th scope="row">Onsdag</th><td>10–19</td></tr>
+            <tr><th scope="row">Torsdag</th><td>10–19</td></tr>
+            <tr><th scope="row">Fredag</th><td>10–19</td></tr>
+            <tr><th scope="row">Lördag</th><td>10–16</td></tr>
+            <tr class="is-closed"><th scope="row">Söndag</th><td>Stängt</td></tr>
+            <tr class="is-closed"><th scope="row">Måndag</th><td>Stängt</td></tr>
+          </tbody>
+        </table>
+        <p class="hours-aside">Vi stänger fyra veckor i juli och mellan jul och nyår. Datumen sätts upp i fönstret och sägs till i stolen i god tid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOKA ============ -->
+  <section class="band band--paper" id="boka" aria-labelledby="boka-rubrik">
+    <div class="wrap split split--wide">
+      <div class="split__head">
+        <p class="idx">04 — Boka tid</p>
+        <h2 id="boka-rubrik">Boka en tid hos oss</h2>
+        <p class="split__lead">Ring om det är bråttom. Skriv om du hellre gör det på kvällen — vi svarar nästa dag vi är öppna.</p>
+      </div>
+
+      <div class="booking">
+        <form class="form" id="bokningsform" novalidate>
+          <div class="form__pair">
+            <p class="field">
+              <label for="namn">Namn</label>
+              <input id="namn" name="namn" type="text" autocomplete="name" required>
+            </p>
+            <p class="field">
+              <label for="telefon">Telefon</label>
+              <input id="telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required>
+            </p>
+          </div>
+          <p class="field">
+            <label for="epost">E-post <span class="hint">(frivilligt)</span></label>
+            <input id="epost" name="epost" type="email" autocomplete="email">
+          </p>
+          <div class="form__pair">
+            <p class="field">
+              <label for="behandling">Behandling</label>
+              <select id="behandling" name="behandling">
+                <option>Klippning dam</option>
+                <option>Klippning herr</option>
+                <option>Klippning barn</option>
+                <option>Färg eller bottenfärg</option>
+                <option>Slingor</option>
+                <option>Styling eller uppsättning</option>
+                <option>Vet inte — hjälp mig välja</option>
+              </select>
+            </p>
+            <p class="field">
+              <label for="stylist">Stylist</label>
+              <select id="stylist" name="stylist">
+                <option>Ingen preferens</option>
+                <option>Elin</option>
+                <option>Johan</option>
+              </select>
+            </p>
+          </div>
+          <p class="field">
+            <label for="meddelande">Meddelande <span class="hint">(när passar du?)</span></label>
+            <textarea id="meddelande" name="meddelande" rows="4" placeholder="Till exempel: gärna en eftermiddag i nästa vecka."></textarea>
+          </p>
+          <div class="form__foot">
+            <button class="btn btn--solid" type="submit">Skicka bokningsförfrågan</button>
+            <span class="form__legal">Det här är inte en bekräftad tid — vi hör av oss och bekräftar.</span>
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-card" aria-labelledby="ring-rubrik">
+          <h3 id="ring-rubrik">Hellre en lur?</h3>
+          <p>Ring oss under öppettid så bokar vi direkt i luren. Det är fortfarande det snabbaste sättet.</p>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M5 4h3.2l1.4 4-2 1.4a12 12 0 0 0 6 6l1.4-2 4 1.4V18a2 2 0 0 1-2.2 2A15.5 15.5 0 0 1 4 6.2 2 2 0 0 1 5 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              <span><span class="k">Telefon</span><a class="v" href="tel:+46709876543">070-987&#160;65&#160;43</a></span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <span><span class="k">Adress</span><address class="v">Hantverkargatan 12<br>112 21 Stockholm</address></span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 7v5.2l3.2 1.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span><span class="k">Öppet</span><span class="v">Tis–fre 10–19<br>Lör 10–16</span></span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HITTA HIT ============ -->
+  <section class="band" id="hitta" aria-labelledby="hitta-rubrik">
+    <div class="wrap split split--wide">
+      <div class="split__head">
+        <p class="idx">05 — Hitta hit</p>
+        <h2 id="hitta-rubrik">Mitt på Kungsholmen</h2>
+        <p class="split__lead">Gatuplan med skylten i fönstret, ett kvarter från Rådhuset.</p>
+      </div>
+
+      <div class="find">
+        <div class="find__block">
+          <h3>Adress</h3>
+          <address>Salong Nord<br>Hantverkargatan 12<br>112 21 Stockholm</address>
+          <ul class="find__list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <rect x="5" y="3" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5 11h14M8 21l2-4M16 21l-2-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Tunnelbana Rådhuset, uppgång Kungsholmsgatan — tre minuters promenad.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M4 17h16M6 17V9l6-4 6 4v8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M10 17v-4h4v4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+              Ingång på gatuplan, ett trappsteg upp. Säg till så möter vi dig i dörren.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M6 12h12M6 12l1.6-4.2A2 2 0 0 1 9.5 6.5h5a2 2 0 0 1 1.9 1.3L18 12v5H6v-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="8.5" cy="14.5" r="1" fill="currentColor"/>
+                <circle cx="15.5" cy="14.5" r="1" fill="currentColor"/>
+              </svg>
+              Boendeparkering på Scheelegatan; enklast är att ställa bilen i garaget vid Kungsholmstorg.
+            </li>
+          </ul>
+        </div>
+
+        <div class="find__block">
+          <h3>Ring oss</h3>
+          <p>Under öppettid svarar Elin eller Johan mellan klippningarna.</p>
+          <a class="big" href="tel:+46709876543">070-987&#160;65&#160;43</a>
+          <p>Får du inget svar står vi i håret på någon — ring igen om en stund eller skicka formuläret ovan, så återkommer vi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p class="eyebrow eyebrow--onDark">Salong Nord</p>
+        <h2 style="margin-top:1rem">Vi ses på Hantverkargatan.</h2>
+      </div>
+      <a class="btn btn--onDark" href="#boka">Boka tid</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&#169; 2026 Salong Nord. Hantverkargatan 12, 112&#160;21 Stockholm.</p>
+      <ul>
+        <li><a href="#priser">Prislista</a></li>
+        <li><a href="#stylister">Stylister</a></li>
+        <li><a href="#oppettider">Öppettider</a></li>
+        <li><a href="tel:+46709876543">070-987&#160;65&#160;43</a></li>
+      </ul>
+    </div>
+
+    <p class="demo-note">Demosida. Salong Nord är ett påhittat företag och sidan är byggd som arbetsprov — inga uppgifter skickas någonstans och ingen tid går att boka på riktigt.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('bokningsform');
+  var status = document.getElementById('form-status');
+  if (!form || !status) return;
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">'
+           + '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>'
+           + '<path d="M8.4 12.3l2.4 2.4 4.8-5" stroke="currentColor" stroke-width="1.5" '
+           + 'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var namn = (document.getElementById('namn').value || '').trim();
+    var halsning = namn ? 'Tack ' + namn + '! ' : 'Tack! ';
+    status.innerHTML = ICON + halsning
+      + 'Det här är en demo — förfrågan skickas inte vidare någonstans och inga uppgifter sparas. '
+      + 'På en skarp sida hade den landat hos salongen direkt.';
+    status.scrollIntoView({ block: 'nearest' });
+  });
+})();
+</script>
+
+</body>
+</html>

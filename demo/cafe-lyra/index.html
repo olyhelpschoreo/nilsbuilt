@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Lyra — bageri och kaffehus på Storgatan i Stockholm</title>
+<meta name="description" content="Café Lyra på Storgatan 4 i Stockholm. Surdegsbröd bakat varje morgon, handrullade kardemummabullar och enkel lunch. Öppet 7–17 på vardagar, 8–16 på helger.">
+<meta property="og:title" content="Café Lyra — bageri och kaffehus på Storgatan">
+<meta property="og:description" content="Surdegsbröd bakat varje morgon, handrullade kardemummabullar och enkel lunch. Storgatan 4, Stockholm.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta name="theme-color" content="#2B1D12">
+<style>
+  /* ---------------------------------------------------------------
+     Café Lyra — visual identity
+     Palette: burnt amber, dark roast brown, flour cream, wheat gold
+     Type:    Georgia-led serif for voice, system sans for detail
+  ----------------------------------------------------------------*/
+  :root{
+    --cream:      #FBF6EE;
+    --cream-deep: #F3E7D5;
+    --sand:       #EADCC6;
+    --ink:        #2B1D12;
+    --ink-soft:   #6B5443;
+    --amber:      #B4531B;
+    --amber-deep: #8E3F12;
+    --gold:       #E0A93E;
+    --dark:       #2B1D12;
+    --dark-2:     #3B2718;
+    --on-dark:    #FBF6EE;
+    --on-dark-soft:#C8B4A0;
+    --rule:       #D9C7AC;
+
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --edge: clamp(1.25rem, 5vw, 4.5rem);
+    --maxw: 1240px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
+  }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+    line-height:1.65;
+    overflow-x:hidden;
+    /* faint flour-speckle texture, authored in CSS only */
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(180,83,27,.05) 0, transparent 38%),
+      radial-gradient(circle at 88% 6%,  rgba(224,169,62,.07) 0, transparent 34%);
+    background-repeat:no-repeat;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-0.015em;
+    margin:0;
+    text-wrap:balance;
+  }
+  p{ margin:0; }
+  ul,ol{ margin:0; padding:0; list-style:none; }
+  a{ color:var(--amber-deep); }
+  svg{ display:block; max-width:100%; }
+
+  /* --- focus -------------------------------------------------- */
+  a:focus-visible,
+  button:focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .on-dark a:focus-visible{
+    outline-color:var(--gold);
+  }
+
+  .skip{
+    position:absolute; left:-9999px; top:0;
+    background:var(--ink); color:var(--on-dark);
+    padding:.75rem 1.25rem; z-index:100; border-radius:0 0 8px 0;
+    font-weight:600;
+  }
+  .skip:focus{ left:0; }
+
+  .wrap{
+    width:100%;
+    max-width:var(--maxw);
+    margin-inline:auto;
+    padding-inline:var(--edge);
+  }
+
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--amber-deep);
+    margin:0 0 1rem;
+  }
+  .on-dark .eyebrow{ color:var(--gold); }
+
+  section, #hitta-hit{ scroll-margin-top:130px; }
+
+  /* --- buttons ------------------------------------------------ */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.55rem;
+    font-family:var(--sans);
+    font-size:1rem;
+    font-weight:600;
+    text-decoration:none;
+    padding:.85rem 1.4rem;
+    border-radius:999px;
+    border:2px solid transparent;
+    transition:transform .18s ease, background-color .18s ease, color .18s ease;
+  }
+  .btn svg{ flex:none; }
+  .btn-primary{
+    background:var(--amber-deep);
+    color:var(--cream);
+  }
+  .btn-primary:hover{ background:var(--ink); transform:translateY(-2px); }
+  .btn-ghost{
+    color:var(--ink);
+    border-color:var(--rule);
+    background:transparent;
+  }
+  .btn-ghost:hover{ border-color:var(--ink); transform:translateY(-2px); }
+
+  /* --- header -------------------------------------------------- */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,246,238,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+    padding-block:.7rem;
+  }
+  .wordmark{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .wordmark .mark{ flex:none; }
+  .wordmark .name{
+    font-family:var(--serif);
+    font-size:1.35rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    line-height:1;
+  }
+  .wordmark .sub{
+    display:block;
+    font-family:var(--sans);
+    font-size:.62rem;
+    font-weight:700;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:.25rem;
+  }
+  .site-nav ul{
+    display:flex;
+    align-items:center;
+    gap:clamp(1rem, 3vw, 2.25rem);
+  }
+  .site-nav a{
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:600;
+    font-size:.95rem;
+    padding:.35rem 0;
+    border-bottom:2px solid transparent;
+  }
+  .site-nav a:hover{ border-bottom-color:var(--amber); }
+  .header-call{ padding:.65rem 1.15rem; font-size:.95rem; }
+  .header-call .num{ display:none; }
+
+  /* mobile: nav drops to its own row, call button stays up top */
+  @media (max-width:719px){
+    .header-inner{ padding-block:.6rem; }
+    .site-nav{ order:3; width:100%; border-top:1px solid var(--rule); padding-top:.5rem; }
+    .site-nav ul{ justify-content:space-between; gap:.5rem; }
+    .site-nav a{ font-size:.88rem; }
+    section, #hitta-hit{ scroll-margin-top:124px; }
+  }
+  /* keep wordmark + call button on one row down to 320px */
+  @media (max-width:599px){
+    .wordmark .sub{ display:none; }
+    .wordmark .name{ font-size:1.2rem; }
+    .wordmark .mark{ width:34px; height:34px; }
+    .header-inner{ gap:.75rem; }
+    .header-call{ padding:.55rem .95rem; font-size:.9rem; gap:.4rem; }
+  }
+  @media (min-width:900px){
+    .header-call .num{ display:inline; }
+    .header-call .label{ display:none; }
+  }
+
+  /* --- hero ---------------------------------------------------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding-block:clamp(2.5rem, 7vw, 6rem) clamp(3rem, 8vw, 7rem);
+    background:
+      linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+  }
+  .hero-grid{
+    display:grid;
+    gap:clamp(2.25rem, 5vw, 4rem);
+    align-items:center;
+  }
+  @media (min-width:960px){
+    .hero-grid{ grid-template-columns:1.08fr .92fr; }
+  }
+  .hero h1{
+    font-size:clamp(2.5rem, 8.4vw, 5.6rem);
+    margin:0 0 1.4rem;
+  }
+  .hero h1 .accent{
+    color:var(--amber-deep);
+    font-style:italic;
+  }
+  .hero-lead{
+    font-size:clamp(1.05rem, 0.98rem + 0.45vw, 1.35rem);
+    color:var(--ink-soft);
+    max-width:34ch;
+    margin-bottom:2rem;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.75rem 1rem;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 1.5rem;
+    margin-top:2.25rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+  .hero-meta span{ display:inline-flex; align-items:center; gap:.45rem; }
+  .hero-art{ position:relative; }
+  .hero-art svg{ width:100%; height:auto; }
+
+  /* --- oven schedule (the signature band) ---------------------- */
+  .oven{
+    background:var(--dark);
+    color:var(--on-dark);
+    position:relative;
+    overflow:hidden;
+    padding-block:clamp(3rem, 7vw, 5.5rem);
+  }
+  .oven::before{
+    /* dawn glow rising from the oven floor */
+    content:"";
+    position:absolute;
+    left:50%; bottom:-45%;
+    width:min(140%, 1100px); aspect-ratio:1;
+    transform:translateX(-50%);
+    background:radial-gradient(circle, rgba(224,169,62,.30) 0%, rgba(180,83,27,.14) 42%, transparent 68%);
+    pointer-events:none;
+  }
+  .oven > .wrap{ position:relative; }
+  .oven h2{
+    font-size:clamp(1.9rem, 4.4vw, 3rem);
+    margin-bottom:.75rem;
+  }
+  .oven-intro{
+    color:var(--on-dark-soft);
+    max-width:46ch;
+    margin-bottom:clamp(2.25rem, 5vw, 3.25rem);
+  }
+  .timeline{
+    display:grid;
+    gap:0;
+  }
+  .timeline li{
+    position:relative;
+    padding-left:2.25rem;
+    padding-bottom:2rem;
+  }
+  .timeline li:last-child{ padding-bottom:0; }
+  .timeline li::before{
+    /* the connecting line */
+    content:"";
+    position:absolute;
+    left:7px; top:1.5rem; bottom:-.25rem;
+    width:2px;
+    background:linear-gradient(180deg, rgba(224,169,62,.55), rgba(224,169,62,.12));
+  }
+  .timeline li:last-child::before{ display:none; }
+  .timeline li::after{
+    /* the dot */
+    content:"";
+    position:absolute;
+    left:0; top:.55rem;
+    width:16px; height:16px;
+    border-radius:50%;
+    background:var(--dark);
+    border:2px solid var(--gold);
+  }
+  .timeline .time{
+    display:block;
+    font-family:var(--serif);
+    font-size:1.5rem;
+    color:var(--gold);
+    line-height:1.1;
+    margin-bottom:.3rem;
+  }
+  .timeline .what{
+    display:block;
+    font-weight:600;
+    margin-bottom:.15rem;
+  }
+  .timeline .note{
+    display:block;
+    color:var(--on-dark-soft);
+    font-size:.92rem;
+    max-width:32ch;
+  }
+  @media (min-width:820px){
+    .timeline{
+      grid-template-columns:repeat(4, 1fr);
+      gap:clamp(1rem, 2.5vw, 2rem);
+    }
+    .timeline li{
+      padding-left:0;
+      padding-top:2.4rem;
+      padding-bottom:0;
+    }
+    .timeline li::before{
+      left:16px; right:-2rem; top:7px; bottom:auto;
+      width:auto; height:2px;
+      background:linear-gradient(90deg, rgba(224,169,62,.55), rgba(224,169,62,.12));
+    }
+    .timeline li::after{ top:0; left:0; }
+    .timeline .note{ max-width:26ch; }
+  }
+
+  /* --- about --------------------------------------------------- */
+  .about{ padding-block:clamp(3.5rem, 8vw, 6.5rem); }
+  .about-grid{
+    display:grid;
+    gap:clamp(2rem, 4vw, 4rem);
+    align-items:start;
+  }
+  @media (min-width:900px){
+    .about-grid{ grid-template-columns:.85fr 1.15fr; }
+  }
+  .about h2{
+    font-size:clamp(1.9rem, 4.4vw, 3.1rem);
+  }
+  .about-body p + p{ margin-top:1.15rem; }
+  .about-body p:first-child{
+    font-size:clamp(1.15rem, 1.05rem + 0.5vw, 1.5rem);
+    font-family:var(--serif);
+    line-height:1.4;
+    color:var(--ink);
+  }
+  .about-body p{ color:var(--ink-soft); max-width:60ch; }
+  .signature{
+    margin-top:2rem;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    color:var(--ink-soft);
+    font-size:.92rem;
+  }
+  .signature .line{
+    flex:none; width:46px; height:1px; background:var(--rule);
+  }
+
+  /* --- menu ---------------------------------------------------- */
+  .menu{
+    background:var(--cream-deep);
+    padding-block:clamp(3.5rem, 8vw, 6.5rem);
+    border-block:1px solid var(--rule);
+  }
+  .section-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:1rem 2rem;
+    margin-bottom:clamp(2.25rem, 5vw, 3.5rem);
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 4.4vw, 3.1rem);
+  }
+  .section-head p{
+    color:var(--ink-soft);
+    max-width:40ch;
+    font-size:.98rem;
+  }
+  .menu-groups{
+    display:grid;
+    gap:clamp(2.25rem, 4vw, 3.5rem);
+  }
+  @media (min-width:700px){
+    .menu-groups{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  }
+  @media (min-width:1080px){
+    .menu-groups{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+  }
+  .menu-group h3{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    font-size:1.05rem;
+    font-family:var(--sans);
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber-deep);
+    padding-bottom:.9rem;
+    margin-bottom:1.4rem;
+    border-bottom:2px solid var(--ink);
+  }
+  .menu-group h3 svg{ flex:none; }
+  .menu-group li + li{ margin-top:1.5rem; }
+  .item-line{
+    display:flex;
+    align-items:baseline;
+    gap:.5rem;
+  }
+  .item-name{
+    font-family:var(--serif);
+    font-size:1.2rem;
+    font-weight:700;
+    line-height:1.2;
+  }
+  .leader{
+    flex:1 1 auto;
+    min-width:1rem;
+    border-bottom:1px dotted var(--ink-soft);
+    transform:translateY(-.3em);
+  }
+  .price{
+    flex:none;
+    font-variant-numeric:tabular-nums;
+    font-weight:700;
+    font-size:1rem;
+    white-space:nowrap;
+  }
+  .item-desc{
+    color:var(--ink-soft);
+    font-size:.94rem;
+    margin-top:.3rem;
+    max-width:38ch;
+  }
+  .menu-note{
+    margin-top:clamp(2.5rem, 5vw, 3.5rem);
+    padding:1.5rem clamp(1.25rem, 3vw, 2.25rem);
+    background:var(--cream);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--amber);
+    border-radius:4px;
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+  }
+  .menu-note svg{ flex:none; color:var(--amber-deep); margin-top:.15rem; }
+  .menu-note p{ color:var(--ink-soft); font-size:.95rem; max-width:70ch; }
+
+  /* --- hours + find -------------------------------------------- */
+  .visit{ padding-block:clamp(3.5rem, 8vw, 6.5rem); }
+  .visit-grid{
+    display:grid;
+    gap:clamp(2.5rem, 5vw, 4.5rem);
+    align-items:start;
+  }
+  @media (min-width:940px){
+    .visit-grid{ grid-template-columns:1fr 1fr; }
+  }
+  .card{
+    background:#FFFCF5;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:clamp(1.5rem, 3.5vw, 2.5rem);
+  }
+  .visit h2{
+    font-size:clamp(1.7rem, 4vw, 2.6rem);
+    margin-bottom:1.5rem;
+  }
+  .hours{ margin-top:.5rem; }
+  .hours li{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:1rem;
+    padding:.85rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .hours li:last-of-type{ border-bottom:0; }
+  .hours .day{ font-weight:600; }
+  .hours .time{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    font-variant-numeric:tabular-nums;
+    white-space:nowrap;
+  }
+  .hours .closed{ color:var(--ink-soft); font-family:var(--sans); font-size:1rem; }
+  .hours-extra{
+    margin-top:1.5rem;
+    padding-top:1.25rem;
+    border-top:2px solid var(--ink);
+    display:grid;
+    gap:.6rem;
+  }
+  .hours-extra div{
+    display:flex; gap:.6rem; align-items:flex-start;
+    color:var(--ink-soft); font-size:.94rem;
+  }
+  .hours-extra svg{ flex:none; color:var(--amber-deep); margin-top:.2rem; }
+
+  .find-details{ margin-bottom:2rem; display:grid; gap:1.25rem; }
+  .detail{
+    display:flex; gap:.9rem; align-items:flex-start;
+  }
+  .detail svg{ flex:none; color:var(--amber-deep); margin-top:.2rem; }
+  .detail dt{
+    font-size:.75rem; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:.15rem;
+  }
+  .detail dd{ margin:0; font-size:1.05rem; }
+  .detail dd a{ color:var(--ink); text-decoration-color:var(--amber); text-underline-offset:3px; }
+  .detail dd a:hover{ color:var(--amber-deep); }
+
+  .map-frame{
+    border:1px solid var(--rule);
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--sand);
+  }
+  .map-frame svg{ width:100%; height:auto; }
+  .map-caption{
+    padding:.85rem 1.1rem;
+    background:var(--cream);
+    border-top:1px solid var(--rule);
+    font-size:.86rem;
+    color:var(--ink-soft);
+  }
+
+  /* --- footer -------------------------------------------------- */
+  .site-footer{
+    background:var(--dark);
+    color:var(--on-dark);
+    padding-block:clamp(3rem, 6vw, 4.5rem) 2rem;
+  }
+  .footer-grid{
+    display:grid;
+    gap:2.25rem;
+    padding-bottom:2.5rem;
+    border-bottom:1px solid rgba(200,180,160,.25);
+  }
+  @media (min-width:760px){
+    .footer-grid{ grid-template-columns:1.4fr 1fr 1fr; gap:3rem; }
+  }
+  .footer-grid h3{
+    font-family:var(--sans);
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .footer-brand h2{
+    font-family:var(--serif);
+    font-size:clamp(1.6rem, 1.4rem + 0.8vw, 2.1rem);
+    color:var(--on-dark);
+    margin-bottom:.35rem;
+  }
+  .footer-brand .name{
+    display:block;
+    font-family:var(--sans);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .footer-brand p{ color:var(--on-dark-soft); max-width:34ch; font-size:.95rem; }
+  .footer-list li{ margin-bottom:.5rem; color:var(--on-dark-soft); font-size:.95rem; }
+  .footer-list a{ color:var(--on-dark); text-decoration-color:rgba(224,169,62,.7); text-underline-offset:3px; }
+  .footer-list a:hover{ color:var(--gold); }
+  .footer-bottom{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.5rem 1.5rem;
+    justify-content:space-between;
+    padding-top:1.75rem;
+    font-size:.85rem;
+    color:var(--on-dark-soft);
+  }
+  .footer-bottom a{ color:var(--on-dark-soft); }
+  .footer-bottom a:hover{ color:var(--gold); }
+
+  /* --- motion -------------------------------------------------- */
+  .steam{
+    animation:drift 7s ease-in-out infinite;
+    transform-origin:center;
+  }
+  .steam-2{ animation-duration:9s; animation-delay:-2.5s; }
+  .steam-3{ animation-duration:8s; animation-delay:-4s; }
+  @keyframes drift{
+    0%,100%{ opacity:.55; transform:translateY(0) translateX(0); }
+    50%    { opacity:.9;  transform:translateY(-10px) translateX(4px); }
+  }
+  .glow{ animation:breathe 9s ease-in-out infinite; transform-origin:center; }
+  @keyframes breathe{
+    0%,100%{ opacity:.75; }
+    50%    { opacity:1; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+      scroll-behavior:auto !important;
+    }
+    .btn:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#innehall">Hoppa till innehållet</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#top">
+      <!-- kardemummabullens spiral — husets märke -->
+      <svg class="mark" width="38" height="38" viewBox="0 0 38 38" aria-hidden="true" focusable="false">
+        <circle cx="19" cy="19" r="18" fill="#B4531B"></circle>
+        <path d="M19 8.5c5.8 0 10.5 4.7 10.5 10.5S24.8 29.5 19 29.5 8.5 24.8 8.5 19c0-4.1 3.3-7.4 7.4-7.4 3.4 0 6.1 2.7 6.1 6.1 0 2.6-2.1 4.7-4.7 4.7"
+              fill="none" stroke="#FBF6EE" stroke-width="2.1" stroke-linecap="round"></path>
+      </svg>
+      <span>
+        <span class="name">Café Lyra</span>
+        <span class="sub">Bageri sedan 2014</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Huvudmeny">
+      <ul>
+        <li><a href="#meny">Meny</a></li>
+        <li><a href="#oppettider">Öppettider</a></li>
+        <li><a href="#hitta-hit">Hitta hit</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-primary header-call" href="tel:+46701234567">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M6.5 3h3l1.5 4.5-2 1.4a12 12 0 0 0 6.1 6.1l1.4-2L21 14.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3Z"></path>
+      </svg>
+      <span class="num">070-123 45 67</span>
+      <span class="label">Ring oss</span>
+    </a>
+  </div>
+</header>
+
+<main id="innehall">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-rubrik">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Storgatan 4 &middot; Stockholm</p>
+        <h1 id="hero-rubrik">Nybakat <span class="accent">innan</span> stan vaknar.</h1>
+        <p class="hero-lead">
+          Surdegsbröd, handrullade kardemummabullar och enkel lunch mitt på Östermalm.
+          Vi öppnar klockan sju — då har brödet redan varit vaket i två timmar.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#meny">
+            Se menyn
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M4 12h15"></path><path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="tel:+46701234567">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M6.5 3h3l1.5 4.5-2 1.4a12 12 0 0 0 6.1 6.1l1.4-2L21 14.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3Z"></path>
+            </svg>
+            Beställ tårta &amp; bröd
+          </a>
+        </div>
+        <p class="hero-meta">
+          <span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path>
+            </svg>
+            Vardagar 07–17
+          </span>
+          <span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path>
+            </svg>
+            Helger 08–16
+          </span>
+          <span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.6"></circle>
+            </svg>
+            4 min från Östermalmstorg
+          </span>
+        </p>
+      </div>
+
+      <!-- Husets bild: ugnsluckan som ett gryningsfönster -->
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 460 520" role="presentation" focusable="false">
+          <defs>
+            <linearGradient id="lyra-dawn" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%"  stop-color="#8E3F12"></stop>
+              <stop offset="42%" stop-color="#C9691F"></stop>
+              <stop offset="78%" stop-color="#E0A93E"></stop>
+              <stop offset="100%" stop-color="#F6D79A"></stop>
+            </linearGradient>
+            <radialGradient id="lyra-sun" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"  stop-color="#FFF3D6"></stop>
+              <stop offset="60%" stop-color="#FBE0A2"></stop>
+              <stop offset="100%" stop-color="#F2C46A"></stop>
+            </radialGradient>
+            <linearGradient id="lyra-crust" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#B4531B"></stop>
+              <stop offset="100%" stop-color="#7A3510"></stop>
+            </linearGradient>
+            <clipPath id="lyra-arch-clip">
+              <path d="M40 500V190a150 150 0 0 1 300 0v310Z"></path>
+            </clipPath>
+          </defs>
+
+          <!-- valvet / ugnsluckan -->
+          <g>
+            <path d="M40 500V190a150 150 0 0 1 300 0v310Z" fill="url(#lyra-dawn)"></path>
+
+            <g clip-path="url(#lyra-arch-clip)">
+              <!-- soluppgång -->
+              <circle class="glow" cx="190" cy="300" r="86" fill="url(#lyra-sun)"></circle>
+              <!-- horisont: takåsar längs Storgatan -->
+              <path d="M40 392h48l22-26 22 26h40l26-32 26 32h44l24-24 24 24h44v120H40Z"
+                    fill="#5E2C10" opacity=".9"></path>
+              <path d="M40 430h300v70H40Z" fill="#3B2718"></path>
+              <!-- upplysta fönster -->
+              <g fill="#E0A93E" opacity=".85">
+                <rect x="72"  y="446" width="13" height="17" rx="2"></rect>
+                <rect x="122" y="446" width="13" height="17" rx="2"></rect>
+                <rect x="212" y="446" width="13" height="17" rx="2"></rect>
+                <rect x="286" y="446" width="13" height="17" rx="2"></rect>
+              </g>
+            </g>
+
+            <!-- valvets ram -->
+            <path d="M40 500V190a150 150 0 0 1 300 0v310" fill="none" stroke="#2B1D12" stroke-width="9" stroke-linecap="square"></path>
+            <path d="M18 500h344" stroke="#2B1D12" stroke-width="12" stroke-linecap="round"></path>
+          </g>
+
+          <!-- limpan på hällen -->
+          <g transform="translate(0 4)">
+            <ellipse cx="190" cy="486" rx="104" ry="15" fill="#2B1D12" opacity=".28"></ellipse>
+            <path d="M104 484c0-30 38-50 86-50s86 20 86 50Z" fill="url(#lyra-crust)"></path>
+            <g stroke="#F6D79A" stroke-width="3.4" stroke-linecap="round" opacity=".8" fill="none">
+              <path d="M138 470c14-13 30-19 52-19"></path>
+              <path d="M166 480c16-14 34-21 58-21"></path>
+            </g>
+          </g>
+
+          <!-- ånga -->
+          <g fill="none" stroke="#8E3F12" stroke-width="4.5" stroke-linecap="round" opacity=".55">
+            <path class="steam"   d="M150 424c-14-16 12-26-2-44s10-28-2-42"></path>
+            <path class="steam steam-2" d="M198 420c-14-18 12-28-2-46s10-30-2-44"></path>
+            <path class="steam steam-3" d="M246 426c-14-16 12-26-2-44s10-28-2-42"></path>
+          </g>
+
+          <!-- bullens spiral, husets märke, som ett sigill på valvet -->
+          <g transform="translate(284 100)">
+            <circle cx="52" cy="52" r="52" fill="#2B1D12"></circle>
+            <path d="M52 22c16.6 0 30 13.4 30 30S68.6 82 52 82 22 68.6 22 52c0-11.6 9.4-21 21-21 9.4 0 17 7.6 17 17 0 7.2-5.8 13-13 13"
+                  fill="none" stroke="#E0A93E" stroke-width="5" stroke-linecap="round"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UGNSSCHEMA ============ -->
+  <section class="oven on-dark" aria-labelledby="ugn-rubrik">
+    <div class="wrap">
+      <p class="eyebrow">Dagens ugnsschema</p>
+      <h2 id="ugn-rubrik">Så ser en morgon ut hos oss</h2>
+      <p class="oven-intro">
+        Ugnen går i omgångar hela dagen. Vill du ha brödet ljummet vet du nu precis när du ska kliva in.
+      </p>
+
+      <ol class="timeline">
+        <li>
+          <span class="time">05.00</span>
+          <span class="what">Surdegen in i ugnen</span>
+          <span class="note">Degen har jäst sedan i förrgår. Nu blir den bröd.</span>
+        </li>
+        <li>
+          <span class="time">07.00</span>
+          <span class="what">Bullarna ut på plåt</span>
+          <span class="note">Kardemumma och kanel, fortfarande varma när vi låser upp.</span>
+        </li>
+        <li>
+          <span class="time">11.30</span>
+          <span class="what">Dagens lunch serveras</span>
+          <span class="note">Ny rätt varje dag. Alltid bröd och smör till.</span>
+        </li>
+        <li>
+          <span class="time">14.30</span>
+          <span class="what">Fikabrödet, andra vändan</span>
+          <span class="note">Eftermiddagens plåt — den som brukar ta slut först.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ OM OSS ============ -->
+  <section class="about" aria-labelledby="om-rubrik">
+    <div class="wrap about-grid">
+      <div>
+        <p class="eyebrow">Om Lyra</p>
+        <h2 id="om-rubrik">Tolv bord, en ugn och ganska mycket smör</h2>
+      </div>
+      <div class="about-body">
+        <p>
+          Vi öppnade 2014 i en gammal cykelverkstad på Storgatan, och behöll det mesta som det var —
+          betonggolvet, de höga fönstren och lukten av något som håller på att bli klart.
+        </p>
+        <p>
+          Klockan fem tänds ljuset i bageriet i källaren. Vid sju står bullarna och svalnar på plåt
+          medan gatan fortfarande är tyst. Vi bakar på surdeg som vi matat sedan första dagen, vi bakar
+          aldrig om gårdagens bröd till nytt, och det som blir över hämtas av Stadsmissionen på kvällen.
+        </p>
+        <p>
+          Lunchen är enkel med flit: en varm rätt, en soppa, en sallad. Kaffet är ljusrostat och påtåren
+          ingår, för man ska kunna bli sittande en stund. Ta med hunden, ta med jobbet, ta med farmor.
+        </p>
+        <p class="signature">
+          <span class="line" aria-hidden="true"></span>
+          Elin &amp; Johan Wikander, bagare och värdar
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MENY ============ -->
+  <section class="menu" id="meny" aria-labelledby="meny-rubrik">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Ur menyn</p>
+          <h2 id="meny-rubrik">Det vi är kända för</h2>
+        </div>
+        <p>Ett urval. Disken ändrar sig med säsongen och med vad som råkar bli extra bra just den morgonen.</p>
+      </div>
+
+      <div class="menu-groups">
+
+        <div class="menu-group">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 21V9"></path>
+              <path d="M12 13c-3 0-5-1.6-5-4 2.9 0 5 1.6 5 4Z"></path>
+              <path d="M12 13c3 0 5-1.6 5-4-2.9 0-5 1.6-5 4Z"></path>
+              <path d="M12 8c-2.6 0-4.4-1.5-4.4-3.6C10.2 4.4 12 5.9 12 8Z"></path>
+              <path d="M12 8c2.6 0 4.4-1.5 4.4-3.6C13.8 4.4 12 5.9 12 8Z"></path>
+            </svg>
+            Från bageriet
+          </h3>
+          <ul>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Kardemummabulle</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">42 kr</span>
+              </p>
+              <p class="item-desc">Handrullad varje morgon. Rejält med smör i vecken och grovstött kardemumma.</p>
+            </li>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Kanelbulle</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">35 kr</span>
+              </p>
+              <p class="item-desc">Klassisk, med pärlsocker och en kanelvirvel som syns hela vägen in.</p>
+            </li>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Surdegslimpa</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">68 kr</span>
+              </p>
+              <p class="item-desc">Två dygns jäsning, mörk skorpa, seg inkråm. Hel limpa att ta med hem.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M4 20h16"></path>
+              <path d="M5 16h14a7 7 0 0 0-14 0Z"></path>
+              <path d="M9 5.5c0 1-1 1-1 2s1 1 1 2"></path>
+              <path d="M13.5 5.5c0 1-1 1-1 2s1 1 1 2"></path>
+            </svg>
+            Från köket
+          </h3>
+          <ul>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Dagens lunch</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">125 kr</span>
+              </p>
+              <p class="item-desc">En varm rätt som byts varje dag. Sallad, bröd och kaffe ingår. Serveras 11.30–14.00.</p>
+            </li>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Frukostmacka</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">65 kr</span>
+              </p>
+              <p class="item-desc">Rostad surdeg, ägg, avokado och flingsalt. Vår mest beställda tallrik före nio.</p>
+            </li>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Ostpaj med sallad</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">115 kr</span>
+              </p>
+              <p class="item-desc">Smördeg, västerbottensost och en syrlig sallad med äpple och senapsvinägrett.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-group">
+          <h3>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M4 9h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z"></path>
+              <path d="M17 10.5h1.6a2.7 2.7 0 0 1 0 5.4H17"></path>
+              <path d="M8 3v2.5"></path><path d="M12 3v2.5"></path>
+            </svg>
+            Från kaffebaren
+          </h3>
+          <ul>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Bryggkaffe</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">32 kr</span>
+              </p>
+              <p class="item-desc">Ljusrostat från ett litet rosteri i Sundbyberg. Påtåren ingår, så klart.</p>
+            </li>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Cappuccino</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">45 kr</span>
+              </p>
+              <p class="item-desc">Dubbel espresso och tät mjölkskum. Havre- eller sojamjölk utan extra kostnad.</p>
+            </li>
+            <li>
+              <p class="item-line">
+                <span class="item-name">Varm choklad</span>
+                <span class="leader" aria-hidden="true"></span>
+                <span class="price">48 kr</span>
+              </p>
+              <p class="item-desc">Smält mörk choklad, inte pulver. Vispad grädde på om du vill.</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="menu-note">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9"></circle><path d="M12 11v5"></path><path d="M12 7.6h.01"></path>
+        </svg>
+        <p>
+          Allt bröd bakas på plats i huset. Vi märker allergener i disken och kan alltid berätta vad som
+          finns i en deg — fråga oss. Beställningar på tårtor och större brödleveranser tar vi på telefon,
+          gärna två dagar i förväg.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÖPPETTIDER + HITTA HIT ============ -->
+  <section class="visit" id="oppettider" aria-labelledby="besok-rubrik">
+    <div class="wrap visit-grid">
+
+      <div>
+        <p class="eyebrow">Öppettider</p>
+        <h2 id="besok-rubrik">Vi står vid ugnen från fem</h2>
+        <div class="card">
+          <ul class="hours">
+            <li><span class="day">Måndag–fredag</span> <span class="time">07.00–17.00</span></li>
+            <li><span class="day">Lördag</span> <span class="time">08.00–16.00</span></li>
+            <li><span class="day">Söndag</span> <span class="time">08.00–16.00</span></li>
+            <li><span class="day">Röda dagar</span> <span class="time closed">09.00–15.00</span></li>
+          </ul>
+          <div class="hours-extra">
+            <div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path>
+              </svg>
+              <p>Lunch serveras 11.30–14.00 alla vardagar.</p>
+            </div>
+            <div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M4 7h16v13H4z"></path><path d="M4 11h16"></path><path d="M9 4v4"></path><path d="M15 4v4"></path>
+              </svg>
+              <p>Midsommarafton, julafton och nyårsafton håller vi stängt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hitta-hit">
+        <p class="eyebrow">Hitta hit</p>
+        <h2>Storgatan 4, mitt i kvarteret</h2>
+
+        <dl class="find-details">
+          <div class="detail">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.6"></circle>
+            </svg>
+            <div>
+              <dt>Adress</dt>
+              <dd>Storgatan 4, 114 51 Stockholm</dd>
+            </div>
+          </div>
+          <div class="detail">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M6.5 3h3l1.5 4.5-2 1.4a12 12 0 0 0 6.1 6.1l1.4-2L21 14.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3Z"></path>
+            </svg>
+            <div>
+              <dt>Telefon</dt>
+              <dd><a href="tel:+46701234567">070-123 45 67</a></dd>
+            </div>
+          </div>
+          <div class="detail">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="5" y="3.5" width="14" height="13" rx="3"></rect>
+              <path d="M5 11h14"></path><path d="m8 16.5-2 4"></path><path d="m16 16.5 2 4"></path>
+              <path d="M8.5 13.8h.01"></path><path d="M15.5 13.8h.01"></path>
+            </svg>
+            <div>
+              <dt>Kollektivt</dt>
+              <dd>Östermalmstorg, fyra minuters promenad</dd>
+            </div>
+          </div>
+        </dl>
+
+        <div class="map-frame">
+          <svg viewBox="0 0 560 340" role="img" aria-labelledby="karta-titel karta-beskrivning">
+            <title id="karta-titel">Handritad karta över kvarteret</title>
+            <desc id="karta-beskrivning">Café Lyra ligger på Storgatan 4, i hörnet mot Grev Turegatan, med Humlegården i sydväst och tunnelbanan vid Östermalmstorg några kvarter bort.</desc>
+
+            <rect width="560" height="340" fill="#F3E7D5"></rect>
+
+            <!-- park -->
+            <path d="M18 214c40-26 96-22 126 8 24 24 18 62-14 76-40 18-104 10-116-22-8-22-8-46 4-62Z"
+                  fill="#D8CBAA" stroke="#B7A57F" stroke-width="2.5" stroke-dasharray="1 0"></path>
+            <g stroke="#9E8B62" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M46 262c6-10 4-18 0-24"></path><path d="M40 240c8-4 14-2 18 4"></path>
+              <path d="M96 284c6-10 4-18 0-24"></path><path d="M90 262c8-4 14-2 18 4"></path>
+            </g>
+            <text x="52" y="300" font-family="Georgia, serif" font-size="15" fill="#6B5443">Humlegården</text>
+
+            <!-- gator, skissade -->
+            <g stroke="#C6B08C" stroke-width="17" stroke-linecap="round" fill="none">
+              <path d="M-6 148c130-10 262-14 392-6 66 4 118 10 180 20"></path>
+              <path d="M330 -6c-6 118-4 232 8 352"></path>
+              <path d="M150 344c2-70 0-124-6-196"></path>
+            </g>
+            <g stroke="#EFE3CD" stroke-width="2.5" stroke-dasharray="12 12" fill="none" stroke-linecap="round">
+              <path d="M-6 148c130-10 262-14 392-6 66 4 118 10 180 20"></path>
+              <path d="M330 -6c-6 118-4 232 8 352"></path>
+            </g>
+
+            <!-- kvarter -->
+            <g fill="#E4D5B8">
+              <path d="M188 176h116v70H188z"></path>
+              <path d="M372 172h120v78H372z"></path>
+              <path d="M196 42h112v78H196z"></path>
+              <path d="M372 34h124v82H372z"></path>
+            </g>
+            <g fill="none" stroke="#B7A57F" stroke-width="2.5" stroke-linejoin="round">
+              <path d="M188 176h116v70H188z"></path>
+              <path d="M372 172h120v78H372z"></path>
+              <path d="M196 42h112v78H196z"></path>
+              <path d="M372 34h124v82H372z"></path>
+            </g>
+
+            <!-- gatunamn -->
+            <text x="60" y="132" font-family="Georgia, serif" font-size="16" fill="#6B5443">Storgatan</text>
+            <text x="352" y="316" font-family="Georgia, serif" font-size="15" fill="#6B5443" transform="rotate(-88 352 316)">Grev Turegatan</text>
+
+            <!-- tunnelbana -->
+            <g transform="translate(438 262)">
+              <circle cx="0" cy="0" r="15" fill="#2B1D12"></circle>
+              <path d="M-6 5V-5h4l2 4 2-4h4v10" fill="none" stroke="#FBF6EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <text x="22" y="5" font-family="Georgia, serif" font-size="14" fill="#6B5443">Östermalmstorg</text>
+            </g>
+
+            <!-- Café Lyra: markören -->
+            <g transform="translate(246 152)">
+              <ellipse cx="0" cy="4" rx="16" ry="5" fill="#2B1D12" opacity=".2"></ellipse>
+              <path d="M0 2C0 2-17-16-17-27a17 17 0 1 1 34 0C17-16 0 2 0 2Z" fill="#B4531B" stroke="#2B1D12" stroke-width="3"></path>
+              <circle cx="0" cy="-27" r="6.5" fill="#FBF6EE"></circle>
+              <text x="0" y="-46" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#2B1D12">Café Lyra</text>
+            </g>
+          </svg>
+          <p class="map-caption">Hörnet Storgatan / Grev Turegatan. Den gröna dörren med mässingshandtaget.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Café Lyra</h2>
+        <span class="name">Bageri &amp; kaffehus</span>
+        <p>Surdeg, kardemumma och enkel lunch på Storgatan sedan 2014. Vi ses vid disken.</p>
+      </div>
+
+      <div>
+        <h3>Kontakt</h3>
+        <ul class="footer-list">
+          <li>Storgatan 4</li>
+          <li>114 51 Stockholm</li>
+          <li><a href="tel:+46701234567">070-123 45 67</a></li>
+          <li><a href="mailto:hej@cafelyra.se">hej@cafelyra.se</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Öppettider</h3>
+        <ul class="footer-list">
+          <li>Måndag–fredag 07–17</li>
+          <li>Lördag–söndag 08–16</li>
+          <li>Lunch 11.30–14.00</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-bottom">
+      <span>&copy; 2026 Café Lyra AB &middot; Org.nr 556123-4567</span>
+      <span>Webbplats av Nilsbuilt</span>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

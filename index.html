@@ -1,244 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
-  <meta name="description" content="Nilsbuilt designs and builds simple, good-looking one-page websites for small businesses in Stockholm — fast and affordable." />
-  <meta property="og:title" content="Nilsbuilt — websites for small businesses in Stockholm" />
-  <meta property="og:description" content="Simple, good-looking websites for small businesses in Stockholm. Fast, affordable, made for you." />
+  <meta name="description" content="Nilsbuilt bygger enkla, snygga hemsidor på en sida för små företag i Stockholm — snabbt, prisvärt och utan månadsavgifter." />
+  <meta property="og:title" content="Nilsbuilt — hemsidor för små företag i Stockholm" />
+  <meta property="og:description" content="Enkla, snygga hemsidor för små företag. Från 3 000 kr, klar på några dagar, inga månadsavgifter." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olyhelpschoreo.github.io/nilsbuilt/" />
+  <meta property="og:image" content="https://olyhelpschoreo.github.io/nilsbuilt/og.png" />
+  <meta property="og:locale" content="sv_SE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" hreflang="sv" href="https://olyhelpschoreo.github.io/nilsbuilt/" />
+  <link rel="alternate" hreflang="en" href="https://olyhelpschoreo.github.io/nilsbuilt/en.html" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234f46e5'/%3E%3Ctext x='50' y='73' font-size='64' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
-  <title>Nilsbuilt — websites for small businesses in Stockholm</title>
-
-  <style>
-    :root {
-      --ink: #0f172a;
-      --muted: #64748b;
-      --accent: #4f46e5;
-      --accent-dark: #4338ca;
-      --line: #e2e8f0;
-      --surface: #f8fafc;
-      --radius: 14px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; color-scheme: light; background: #ffffff; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #ffffff;
-      color: var(--ink);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 22px; }
-    a { color: inherit; }
-
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(255,255,255,0.85);
-      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
-    .brand span { color: var(--accent); }
-    .btn {
-      display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
-      font-weight: 600; padding: 11px 20px; border-radius: 10px; border: none; cursor: pointer;
-      font-size: 15px; transition: background .15s ease;
-    }
-    .btn:hover { background: var(--accent-dark); }
-    .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-    .btn.ghost:hover { background: var(--surface); }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-
-    .hero {
-      padding: 84px 0 64px; text-align: center;
-      background: radial-gradient(72% 52% at 50% -8%, #eef2ff 0%, rgba(255,255,255,0) 62%);
-    }
-    .hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.03em; }
-    .hero p { font-size: clamp(17px, 2.5vw, 20px); color: var(--muted); max-width: 640px; margin: 22px auto 32px; }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .eyebrow {
-      display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent);
-      background: #eef2ff; padding: 6px 13px; border-radius: 999px; margin-bottom: 20px;
-    }
-
-    section.band { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .section { padding: 70px 0; scroll-margin-top: 84px; }
-    .section h2 { font-size: clamp(26px, 4vw, 34px); letter-spacing: -0.02em; text-align: center; }
-    .section .lead { text-align: center; color: var(--muted); max-width: 560px; margin: 14px auto 0; font-size: 17px; }
-
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
-    .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 22px; }
-    section.band .card { background: #fff; }
-    .card .ico {
-      width: 42px; height: 42px; border-radius: 11px; background: #eef2ff; color: var(--accent);
-      display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-    }
-    .card h3 { font-size: 18px; letter-spacing: -0.01em; }
-    .card p { color: var(--muted); margin-top: 8px; font-size: 15px; }
-
-    .steps { counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
-    .step { position: relative; padding: 26px 22px 22px; }
-    .step::before {
-      counter-increment: step; content: counter(step);
-      display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff;
-      font-weight: 700; font-size: 16px; margin-bottom: 14px;
-    }
-    .step h3 { font-size: 17px; }
-    .step p { color: var(--muted); margin-top: 6px; font-size: 15px; }
-
-    .price-box { max-width: 560px; margin: 40px auto 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; text-align: center; }
-    .price-box .amount { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; }
-    .price-box .amount small { font-size: 16px; color: var(--muted); font-weight: 500; }
-
-    .signup { max-width: 560px; margin: 44px auto 0; }
-    .field { margin-bottom: 16px; text-align: left; }
-    .field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-    .field input, .field textarea {
-      width: 100%; padding: 12px 14px; font-size: 16px; font-family: inherit;
-      border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink);
-    }
-    .field input:focus, .field textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
-    .field textarea { min-height: 110px; resize: vertical; }
-    .signup .btn { width: 100%; font-size: 16px; padding: 14px; }
-    #form-status { text-align: center; margin-top: 14px; font-weight: 600; min-height: 22px; }
-
-    footer { border-top: 1px solid var(--line); padding: 32px 0; text-align: center; color: var(--muted); font-size: 14px; }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    .mockup { max-width: 540px; margin: 46px auto 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 24px 60px -24px rgba(15,23,42,0.28); text-align: left; }
-    .mockup .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: var(--surface); border-bottom: 1px solid var(--line); }
-    .mockup .bar .dot { width: 11px; height: 11px; border-radius: 50%; }
-    .mockup .bar .url { flex: 1; margin-left: 8px; background: #fff; border: 1px solid var(--line); border-radius: 7px; font-size: 12px; color: var(--muted); padding: 5px 11px; }
-    .mockup .screen { padding: 26px; }
-    .mockup .screen.flush { padding: 0; }
-    .mockup-caption { text-align: center; color: var(--muted); font-size: 14px; margin: 16px auto 0; max-width: 540px; }
-
-    /* the sample small-business site shown inside the browser mockup */
-    .mini-nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid var(--line); }
-    .mini-brand { font-size: 14px; font-weight: 800; letter-spacing: -0.01em; color: #7c2d12; }
-    .mini-links { display: flex; gap: 13px; font-size: 11px; color: var(--muted); font-weight: 500; }
-    .mini-photo {
-      padding: 26px 18px; text-align: center;
-      background: linear-gradient(135deg, #f59e0b 0%, #b45309 55%, #7c2d12 100%);
-    }
-    .mini-photo h4 { color: #fff; font-size: 19px; letter-spacing: -0.02em; line-height: 1.2; }
-    .mini-photo p { color: rgba(255,255,255,0.88); font-size: 11px; margin-top: 5px; }
-    .mini-cta { display: inline-block; margin-top: 12px; background: #fff; color: #7c2d12; font-size: 11px; font-weight: 700; padding: 7px 15px; border-radius: 7px; }
-    .mini-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
-    .mini-info div { background: #fff; padding: 12px 8px; text-align: center; }
-    .mini-info strong { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 700; }
-    .mini-info span { font-size: 12px; font-weight: 600; }
-
-    .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px 22px; margin-top: 26px; color: var(--muted); font-size: 14px; font-weight: 500; }
-    .trust span { display: inline-flex; align-items: center; gap: 7px; }
-    .trust svg { color: var(--accent); flex: none; }
-
-    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
-    .work-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; text-align: center; display: flex; flex-direction: column; }
-    .work-card h3 { font-size: 20px; }
-    .work-card p { color: var(--muted); margin-top: 8px; font-size: 15px; flex: 1; }
-    .work-card .btn { align-self: center; margin-top: 18px; }
-
-    .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
-    .qa { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; }
-    .qa h3 { font-size: 16px; }
-    .qa p { color: var(--muted); margin-top: 7px; font-size: 15px; }
-
-    .card, .qa, .work-card { transition: border-color .15s ease, transform .15s ease; }
-    .card:hover, .qa:hover, .work-card:hover { border-color: #cbd5e1; transform: translateY(-2px); }
-
-    .includes { list-style: none; max-width: 300px; margin: 20px auto 0; display: grid; gap: 9px; text-align: left; }
-    .includes li { position: relative; padding-left: 26px; font-size: 15px; }
-    .includes li::before { content: "✓"; position: absolute; left: 0; top: -1px; color: var(--accent); font-weight: 800; }
-
-    @media (max-width: 720px) {
-      .grid, .steps, .faq, .work-grid { grid-template-columns: 1fr; }
-      .hero { padding: 56px 0 44px; }
-    }
-  </style>
+  <title>Nilsbuilt — hemsidor för små företag i Stockholm</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand">nils<span>built</span></div>
-      <a href="#signup" class="btn">Get a website</a>
+      <a href="./" class="brand">nils<span>built</span></a>
+      <div class="nav-right">
+        <nav class="langsw" aria-label="Språk">
+          <a href="./" aria-current="true" lang="sv">SV</a>
+          <a href="en.html" lang="en">EN</a>
+        </nav>
+        <a href="#signup" class="btn">Få en hemsida</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Websites for small businesses in Stockholm</span>
-        <h1>A clean website for your business, built fast.</h1>
-        <p>Hi — I'm Nils. I design and build simple, good-looking websites without the big-agency price tag. Tell me about your business and I'll build you a site you're proud of.</p>
+        <span class="eyebrow">Hemsidor för små företag i Stockholm</span>
+        <h1>En snygg hemsida för ditt företag, klar på några dagar.</h1>
+        <p>Hej — jag heter Nils. Jag designar och bygger enkla, snygga hemsidor utan byråpriser. Berätta om ditt företag, så bygger jag en sida du är stolt över.</p>
         <div class="hero-actions">
-          <a href="#signup" class="btn">Get your website</a>
-          <a href="#how" class="btn ghost">How it works</a>
+          <a href="#signup" class="btn">Få din hemsida</a>
+          <a href="#hur" class="btn ghost">Så går det till</a>
         </div>
 
         <p class="trust">
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free preview before you pay</span>
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No monthly fees</span>
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ready in days</span>
+          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gratis förhandsvisning först</span>
+          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Inga månadsavgifter</span>
+          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Klar på några dagar</span>
         </p>
 
-        <div class="mockup" aria-hidden="true">
-          <div class="bar">
-            <span class="dot" style="background:#f87171"></span>
-            <span class="dot" style="background:#fbbf24"></span>
-            <span class="dot" style="background:#34d399"></span>
-            <span class="url">cafelyra.se</span>
+        <div class="mock-stage">
+          <div class="mockup" aria-hidden="true">
+            <div class="bar">
+              <span class="dot" style="background:#f87171"></span>
+              <span class="dot" style="background:#fbbf24"></span>
+              <span class="dot" style="background:#34d399"></span>
+              <span class="url">cafelyra.se</span>
+            </div>
+            <div class="screen flush">
+              <div class="mini-nav">
+                <span class="mini-brand">Café Lyra</span>
+                <span class="mini-links"><span>Meny</span><span>Öppettider</span><span>Hitta hit</span></span>
+              </div>
+              <div class="mini-photo">
+                <h4>Nybakat bröd varje morgon.</h4>
+                <p>Bageri &amp; kaffehus på Storgatan</p>
+                <span class="mini-cta">Boka bord</span>
+              </div>
+              <div class="mini-info">
+                <div><strong>Öppet</strong><span>7–17</span></div>
+                <div><strong>Ring</strong><span>070-123 45 67</span></div>
+                <div><strong>Hitta hit</strong><span>Storgatan 4</span></div>
+              </div>
+            </div>
           </div>
-          <div class="screen flush">
-            <div class="mini-nav">
-              <span class="mini-brand">Café Lyra</span>
-              <span class="mini-links"><span>Menu</span><span>Hours</span><span>Find us</span></span>
-            </div>
-            <div class="mini-photo">
-              <h4>Fresh bread, every morning.</h4>
-              <p>Bakery &amp; coffee house on Storgatan</p>
-              <span class="mini-cta">Book a table</span>
-            </div>
-            <div class="mini-info">
-              <div><strong>Open</strong><span>7–17</span></div>
-              <div><strong>Call</strong><span>070-123 45 67</span></div>
-              <div><strong>Find us</strong><span>Storgatan 4</span></div>
+          <div class="phone" aria-hidden="true">
+            <div class="notch"></div>
+            <div class="pscreen">
+              <div class="pnav">Café Lyra</div>
+              <div class="pphoto">
+                <h5>Nybakat bröd varje morgon.</h5>
+                <span>Boka bord</span>
+              </div>
+              <div class="pinfo"><i></i><i class="s"></i><i></i><i class="s"></i></div>
             </div>
           </div>
         </div>
-        <p class="mockup-caption">An example of the kind of one-page site I build.</p>
+        <p class="mockup-caption">Samma sida, lika snygg i datorn som i mobilen.</p>
       </div>
     </section>
 
     <section class="band section">
       <div class="wrap">
-        <h2>What you get</h2>
-        <p class="lead">Everything a small business actually needs — nothing it doesn't.</p>
+        <h2 class="reveal">Vad du får</h2>
+        <p class="lead reveal">Allt ett litet företag faktiskt behöver — inget mer.</p>
         <div class="grid">
-          <div class="card">
+          <div class="card reveal">
             <div class="ico">
               <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>
             </div>
-            <h3>A site that works</h3>
-            <p>What you do, where you are, and how to reach you — on one clean, clear page.</p>
+            <h3>En sida som fungerar</h3>
+            <p>Vad du gör, var du finns och hur man når dig — på en enda tydlig sida.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="ico">
               <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
             </div>
-            <h3>Fast &amp; affordable</h3>
-            <p>Built in days, not months — and a fair price, because I keep things simple.</p>
+            <h3>Snabbt och prisvärt</h3>
+            <p>Klar på dagar, inte månader — och ett ärligt pris, för jag håller det enkelt.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <div class="ico">
               <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
             </div>
-            <h3>Great on phones</h3>
-            <p>Looks sharp on phones, tablets and computers — where most of your customers actually are.</p>
+            <h3>Snygg i mobilen</h3>
+            <p>Ser bra ut i mobil, surfplatta och dator — där dina kunder faktiskt är.</p>
           </div>
         </div>
       </div>
@@ -246,57 +123,136 @@
 
     <section class="section">
       <div class="wrap">
-        <h2>How much?</h2>
-        <p class="lead">Simple, honest pricing — no surprises later.</p>
-        <div class="price-box">
-          <div class="amount">from 3&nbsp;000 kr <small>/ one-page site</small></div>
+        <h2 class="reveal">Vad kostar det?</h2>
+        <p class="lead reveal">Enkel och ärlig prissättning — inga överraskningar efteråt.</p>
+        <div class="price-box reveal">
+          <div class="amount">från 3&nbsp;000 kr <small>/ hemsida på en sida</small></div>
           <ul class="includes">
-            <li>Custom one-page website</li>
-            <li>Looks great on every phone</li>
-            <li>Your own shareable link</li>
-            <li>A free preview before you pay</li>
+            <li>Egen hemsida, byggd för dig</li>
+            <li>Ser bra ut i alla mobiler</li>
+            <li>En egen länk att dela</li>
+            <li>Gratis förhandsvisning innan du betalar</li>
           </ul>
-          <p style="color: var(--muted); margin-top: 16px;">Tell me what you need and I'll send you an exact quote — free, no pressure.</p>
-          <a href="#signup" class="btn" style="margin-top: 22px;">Get your free quote</a>
+          <p style="color: var(--muted); margin-top: 16px;">Berätta vad du behöver, så skickar jag en exakt offert — gratis och utan press.</p>
+          <a href="#signup" class="btn" style="margin-top: 22px;">Få en gratis offert</a>
         </div>
       </div>
     </section>
 
-    <section class="band section" id="how">
+    <section class="band section">
       <div class="wrap">
-        <h2>How it works</h2>
-        <p class="lead">Three steps, no jargon.</p>
+        <h2 class="reveal">Vilka val har du?</h2>
+        <p class="lead reveal">De flesta små företag väljer mellan dessa. Så här ser de ut sida vid sida.</p>
+        <div class="compare-wrap reveal">
+          <table class="compare">
+            <caption class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Jämförelse av olika sätt att få en hemsida</caption>
+            <thead>
+              <tr>
+                <th scope="col">Alternativ</th>
+                <th scope="col">Kostnad</th>
+                <th scope="col">Din tid</th>
+                <th scope="col">Ser proffsig ut</th>
+                <th scope="col">Du äger den</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Ingen hemsida</th>
+                <td data-label="Kostnad">0 kr</td>
+                <td data-label="Din tid">Ingen</td>
+                <td data-label="Ser proffsig ut"><span class="no">Nej</span></td>
+                <td data-label="Du äger den">—</td>
+              </tr>
+              <tr>
+                <th scope="row">Bara en Facebook-sida</th>
+                <td data-label="Kostnad">0 kr</td>
+                <td data-label="Din tid">Löpande</td>
+                <td data-label="Ser proffsig ut"><span class="no">Nej</span></td>
+                <td data-label="Du äger den"><span class="no">Nej</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Bygga själv (Wix, Squarespace)</th>
+                <td data-label="Kostnad">~200 kr/mån, för alltid</td>
+                <td data-label="Din tid">Många kvällar</td>
+                <td data-label="Ser proffsig ut">Kanske</td>
+                <td data-label="Du äger den"><span class="no">Nej</span></td>
+              </tr>
+              <tr>
+                <th scope="row">En webbyrå</th>
+                <td data-label="Kostnad">15 000 kr och uppåt</td>
+                <td data-label="Din tid">Möten och underlag</td>
+                <td data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
+                <td data-label="Du äger den"><span class="yes">Ja</span></td>
+              </tr>
+              <tr class="mine">
+                <th scope="row">Nilsbuilt</th>
+                <td data-label="Kostnad">från 3 000 kr, en gång</td>
+                <td data-label="Din tid">Ett samtal</td>
+                <td data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
+                <td data-label="Du äger den"><span class="yes">Ja</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hur">
+      <div class="wrap">
+        <h2 class="reveal">Så går det till</h2>
+        <p class="lead reveal">Tre steg, inget krångel.</p>
         <div class="steps">
-          <div class="step">
-            <h3>Tell me about your business</h3>
-            <p>Fill in the short form below — what you do and what you'd like.</p>
+          <div class="step reveal">
+            <h3>Berätta om ditt företag</h3>
+            <p>Fyll i det korta formuläret — vad du gör och vad du vill ha.</p>
           </div>
-          <div class="step">
-            <h3>I build your site</h3>
-            <p>I send you a preview to look over, and we tweak it until it's right.</p>
+          <div class="step reveal">
+            <h3>Jag bygger din sida</h3>
+            <p>Du får se en förhandsvisning, och vi ändrar tills den känns rätt.</p>
           </div>
-          <div class="step">
-            <h3>You go live</h3>
-            <p>Your website goes online with its own link — ready to share.</p>
+          <div class="step reveal">
+            <h3>Sidan går live</h3>
+            <p>Din hemsida läggs upp med en egen länk — redo att dela.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="band section">
+      <div class="wrap">
+        <h2 class="reveal">Exempel på hemsidor</h2>
+        <p class="lead reveal">Två kompletta sidor jag byggt som exempel. Företagen är påhittade — sidorna är på riktigt.</p>
+        <div class="work-grid">
+          <div class="work-card reveal">
+            <div class="work-thumb cafe" aria-hidden="true">Bageri &amp; kaffehus</div>
+            <div class="work-body">
+              <h3>Café Lyra</h3>
+              <p>Ett bageri och kaffehus: meny med priser, öppettider och hur man hittar dit. Precis den sortens sida ett kafé behöver.</p>
+              <a href="demo/cafe-lyra/" class="btn ghost">Öppna Café Lyra →</a>
+            </div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-thumb salon" aria-hidden="true">Frisörsalong</div>
+            <div class="work-body">
+              <h3>Salong Nord</h3>
+              <p>En frisörsalong: prislista, stylisterna, öppettider och bokning. Samma idé, helt annan känsla.</p>
+              <a href="demo/salong-nord/" class="btn ghost">Öppna Salong Nord →</a>
+            </div>
+          </div>
+        </div>
+        <p class="work-note reveal">Jag bygger även webbappar — till exempel <a href="https://choreo-silk.vercel.app" target="_blank" rel="noopener">Choreo</a> för hushållssysslor och <a href="https://olyhelpschoreo.github.io/cellar/" target="_blank" rel="noopener">Cellar</a> för växtvård.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <h2>Recent work</h2>
-        <p class="lead">A couple of things I've designed, built and shipped.</p>
-        <div class="work-grid">
-          <div class="work-card">
-            <h3>Choreo</h3>
-            <p>A household chore app for families — splits chores fairly with rotation and points. Built for web and mobile, used by real families.</p>
-            <a href="https://choreo-silk.vercel.app" target="_blank" rel="noopener" class="btn ghost">View Choreo →</a>
-          </div>
-          <div class="work-card">
-            <h3>Cellar</h3>
-            <p>A plant-care app that tracks your houseplants, shows which need water today, and remembers how each one has grown. A polished, installable web app.</p>
-            <a href="https://olyhelpschoreo.github.io/cellar/" target="_blank" rel="noopener" class="btn ghost">View Cellar →</a>
+        <h2 class="reveal">Vem bygger den?</h2>
+        <div class="about reveal">
+          <div class="about-mark" aria-hidden="true">N</div>
+          <div class="about-body">
+            <p>Jag heter <strong>Nils</strong> och jag bygger hemsidor från Stockholm. Du pratar med mig, inte med en säljare — det finns ingen byrå, inget kontor och inga overheadkostnader att täcka. Det är därför priset är vad det är.</p>
+            <p>Jag bygger varje sida för hand, från grunden. Ingen mall som tusen andra företag redan använder, och ingen plattform du måste betala varje månad för att sidan ska ligga kvar.</p>
+            <p>Och när något behöver ändras hör du av dig till mig direkt — inte till en support i ett annat land.</p>
           </div>
         </div>
       </div>
@@ -304,31 +260,31 @@
 
     <section class="band section" id="signup">
       <div class="wrap">
-        <h2>Get your website</h2>
-        <p class="lead">Takes a minute — it's a free quote, and you don't pay until you've seen and approved a preview.</p>
+        <h2 class="reveal">Få din hemsida</h2>
+        <p class="lead reveal">Tar en minut — det är en gratis offert, och du betalar ingenting förrän du sett och godkänt en förhandsvisning.</p>
         <form class="signup" id="signup-form">
           <!-- Web3Forms public access key — safe in client-side code; it can only deliver mail to the account owner. -->
           <input type="hidden" name="access_key" value="c4a0a13f-0577-48ca-911d-5884ea23847b" />
-          <input type="hidden" name="subject" value="New website request" />
+          <input type="hidden" name="subject" value="Ny förfrågan om hemsida" />
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
           <div class="field">
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" required />
+            <label for="name">Ditt namn</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
           </div>
           <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
+            <label for="email">E-post</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
           <div class="field">
-            <label for="business">Business name</label>
-            <input id="business" name="business" type="text" />
+            <label for="business">Företagets namn</label>
+            <input id="business" name="business" type="text" autocomplete="organization" />
           </div>
           <div class="field">
-            <label for="message">What do you need? Tell me about your business.</label>
+            <label for="message">Vad behöver du? Berätta om ditt företag.</label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <button type="submit" class="btn">Send my request</button>
+          <button type="submit" class="btn">Skicka min förfrågan</button>
           <p id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -336,31 +292,31 @@
 
     <section class="section">
       <div class="wrap">
-        <h2>Common questions</h2>
+        <h2 class="reveal">Vanliga frågor</h2>
         <div class="faq">
-          <div class="qa">
-            <h3>How long does it take?</h3>
-            <p>Most one-page sites are ready in a few days, with previews along the way.</p>
+          <div class="qa reveal">
+            <h3>Hur lång tid tar det?</h3>
+            <p>De flesta sidor är klara på några dagar, med förhandsvisningar under tiden.</p>
           </div>
-          <div class="qa">
-            <h3>What do I need to give you?</h3>
-            <p>Just the basics — what your business does, any logo or photos you have, and how people reach you.</p>
+          <div class="qa reveal">
+            <h3>Vad behöver du av mig?</h3>
+            <p>Bara det enkla — vad ditt företag gör, eventuell logga eller bilder du har, och hur man når dig.</p>
           </div>
-          <div class="qa">
-            <h3>Can I change it later?</h3>
-            <p>Yes — small updates are easy. Just send me what you'd like changed.</p>
+          <div class="qa reveal">
+            <h3>Kan jag ändra saker senare?</h3>
+            <p>Ja — små ändringar är enkla. Hör bara av dig med vad du vill ändra.</p>
           </div>
-          <div class="qa">
-            <h3>Do I pay upfront?</h3>
-            <p>No. You see a preview first and only pay once you're happy with it.</p>
+          <div class="qa reveal">
+            <h3>Betalar jag i förskott?</h3>
+            <p>Nej. Du ser en förhandsvisning först och betalar först när du är nöjd.</p>
           </div>
-          <div class="qa">
-            <h3>Do I own the website?</h3>
-            <p>Yes — the design, the words and the pictures are yours to keep. If you ever want to move it elsewhere, you can take it with you.</p>
+          <div class="qa reveal">
+            <h3>Äger jag hemsidan?</h3>
+            <p>Ja — designen, texterna och bilderna är dina att behålla. Vill du flytta den någon annanstans kan du ta med dig den.</p>
           </div>
-          <div class="qa">
-            <h3>Is there a monthly fee?</h3>
-            <p>Not from me. Your site is hosted free, so once it's paid for it simply stays online. A personal address like <em>yourbusiness.se</em> is optional and costs a small yearly fee paid straight to the domain provider.</p>
+          <div class="qa reveal">
+            <h3>Finns det någon månadsavgift?</h3>
+            <p>Inte från mig. Din sida ligger på ett gratis webbhotell, så när den är betald ligger den kvar. En egen adress som <em>dittforetag.se</em> är valfri och kostar en liten årsavgift direkt till domänleverantören.</p>
           </div>
         </div>
       </div>
@@ -369,10 +325,24 @@
 
   <footer>
     <div class="wrap">
-      <strong>Nilsbuilt</strong> · <a href="mailto:olypalsson@gmail.com">olypalsson@gmail.com</a><br />
-      Built by Nils.
+      <div class="fbrand">nils<span>built</span></div>
+      <div class="flinks">
+        <a href="#signup">Få en offert</a>
+        <a href="demo/cafe-lyra/">Café Lyra</a>
+        <a href="demo/salong-nord/">Salong Nord</a>
+        <a href="en.html" lang="en">In English</a>
+      </div>
+      <div class="fmeta">
+        Hemsidor för små företag i Stockholm · <a href="mailto:olypalsson@gmail.com">olypalsson@gmail.com</a><br />
+        Byggd av Nils.
+      </div>
     </div>
   </footer>
+
+  <div class="stickybar" id="stickybar">
+    <div class="sp">från 3&nbsp;000 kr<small>Gratis offert, inga månadsavgifter</small></div>
+    <a href="#signup" class="btn">Få offert</a>
+  </div>
 
   <script>
     const form = document.getElementById("signup-form");
@@ -382,10 +352,10 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      if (btn.disabled) return; // ignore a second click while one is in flight
+      if (btn.disabled) return; // ignorera en andra klick medan en är på väg
       btn.disabled = true;
       statusEl.style.color = "#64748b";
-      statusEl.textContent = "Sending…";
+      statusEl.textContent = "Skickar…";
       const data = Object.fromEntries(new FormData(form));
       try {
         const res = await fetch("https://api.web3forms.com/submit", {
@@ -397,23 +367,50 @@
         try {
           json = await res.json();
         } catch {
-          // non-JSON response (e.g. a server error page) — treat as a failed submit
+          // svar som inte är JSON (t.ex. en felsida) — behandla som misslyckat
         }
         if (res.ok && json && json.success) {
           form.reset();
           statusEl.style.color = "#15803d";
-          statusEl.textContent = "Thanks! Your request is in — I'll be in touch soon.";
+          statusEl.textContent = "Tack! Din förfrågan är inne — jag hör av mig snart.";
         } else {
           statusEl.style.color = "#b91c1c";
-          statusEl.textContent = "Something went wrong. Email me directly: " + FALLBACK_EMAIL;
+          statusEl.textContent = "Något gick fel. Mejla mig direkt: " + FALLBACK_EMAIL;
         }
       } catch {
         statusEl.style.color = "#b91c1c";
-        statusEl.textContent = "Network error — please try again, or email " + FALLBACK_EMAIL;
+        statusEl.textContent = "Något gick fel. Mejla mig direkt: " + FALLBACK_EMAIL;
       } finally {
         btn.disabled = false;
       }
     });
+
+    // Mjuk inblandning när sektioner rullas in i bild.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealables = document.querySelectorAll(".reveal");
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      revealables.forEach((el) => el.classList.add("in"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      revealables.forEach((el) => io.observe(el));
+    }
+
+    // Göm den fasta mobilknappen när formuläret ändå syns, så den inte täcker skicka-knappen.
+    const bar = document.getElementById("stickybar");
+    const signup = document.getElementById("signup");
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(
+        (entries) => entries.forEach((en) => bar.classList.toggle("hide", en.isIntersecting)),
+        { threshold: 0 }
+      ).observe(signup);
+    }
   </script>
 </body>
 </html>
