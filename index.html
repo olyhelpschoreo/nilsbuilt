@@ -20,12 +20,13 @@
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip" href="#main">Hoppa till innehållet</a>
   <header>
     <div class="wrap nav">
       <a href="./" class="brand">nils<span>built</span></a>
       <div class="nav-right">
         <nav class="langsw" aria-label="Språk">
-          <a href="./" aria-current="true" lang="sv">SV</a>
+          <a href="./" aria-current="page" lang="sv">SV</a>
           <a href="en.html" lang="en">EN</a>
         </nav>
         <a href="#signup" class="btn">Få en hemsida</a>
@@ -33,7 +34,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
       <div class="wrap">
         <span class="eyebrow">Hemsidor för små företag i Stockholm</span>
@@ -44,11 +45,11 @@
           <a href="#hur" class="btn ghost">Så går det till</a>
         </div>
 
-        <p class="trust">
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gratis förhandsvisning först</span>
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Inga månadsavgifter</span>
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Klar på några dagar</span>
-        </p>
+        <ul class="trust" role="list">
+          <li><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gratis förhandsvisning först</li>
+          <li><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Inga månadsavgifter</li>
+          <li><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Klar på några dagar</li>
+        </ul>
 
         <div class="mock-stage">
           <div class="mockup" aria-hidden="true">
@@ -64,7 +65,7 @@
                 <span class="mini-links"><span>Meny</span><span>Öppettider</span><span>Hitta hit</span></span>
               </div>
               <div class="mini-photo">
-                <h4>Nybakat innan stan vaknar.</h4>
+                <span class="mock-h4">Nybakat innan stan vaknar.</span>
                 <p>Bageri &amp; kaffehus på Storgatan</p>
                 <span class="mini-cta">Se menyn</span>
               </div>
@@ -80,7 +81,7 @@
             <div class="pscreen">
               <div class="pnav">Café Lyra</div>
               <div class="pphoto">
-                <h5>Nybakat innan stan vaknar.</h5>
+                <span class="mock-h5">Nybakat innan stan vaknar.</span>
                 <span>Se menyn</span>
               </div>
               <div class="pinfo"><i></i><i class="s"></i><i></i><i class="s"></i></div>
@@ -127,7 +128,7 @@
         <p class="lead reveal">Enkel och ärlig prissättning — inga överraskningar efteråt.</p>
         <div class="price-box reveal">
           <div class="amount">från 3&nbsp;000 kr <small>/ hemsida på en sida</small></div>
-          <ul class="includes">
+          <ul class="includes" role="list">
             <li>Egen hemsida, byggd för dig</li>
             <li>Ser bra ut i alla mobiler</li>
             <li>En egen länk att dela</li>
@@ -144,52 +145,52 @@
         <h2 class="reveal">Vilka val har du?</h2>
         <p class="lead reveal">De flesta små företag väljer mellan dessa. Så här ser de ut sida vid sida.</p>
         <div class="compare-wrap reveal">
-          <table class="compare">
+          <table class="compare" role="table">
             <caption class="sr-only">Jämförelse av olika sätt att få en hemsida</caption>
             <thead>
-              <tr>
-                <th scope="col">Alternativ</th>
-                <th scope="col">Kostnad</th>
-                <th scope="col">Din tid</th>
-                <th scope="col">Ser proffsig ut</th>
-                <th scope="col">Du äger den</th>
+              <tr role="row">
+                <th role="columnheader" scope="col">Alternativ</th>
+                <th role="columnheader" scope="col">Kostnad</th>
+                <th role="columnheader" scope="col">Din tid</th>
+                <th role="columnheader" scope="col">Ser proffsig ut</th>
+                <th role="columnheader" scope="col">Du äger den</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Ingen hemsida</th>
-                <td data-label="Kostnad">0 kr</td>
-                <td data-label="Din tid">Ingen</td>
-                <td data-label="Ser proffsig ut"><span class="no">Nej</span></td>
-                <td data-label="Du äger den">—</td>
+              <tr role="row">
+                <th role="rowheader" scope="row">Ingen hemsida</th>
+                <td role="cell" data-label="Kostnad">0 kr</td>
+                <td role="cell" data-label="Din tid">Ingen</td>
+                <td role="cell" data-label="Ser proffsig ut"><span class="no">Nej</span></td>
+                <td role="cell" data-label="Du äger den">—</td>
               </tr>
-              <tr>
-                <th scope="row">Bara en Facebook-sida</th>
-                <td data-label="Kostnad">0 kr</td>
-                <td data-label="Din tid">Löpande</td>
-                <td data-label="Ser proffsig ut"><span class="no">Nej</span></td>
-                <td data-label="Du äger den"><span class="no">Nej</span></td>
+              <tr role="row">
+                <th role="rowheader" scope="row">Bara en Facebook-sida</th>
+                <td role="cell" data-label="Kostnad">0 kr</td>
+                <td role="cell" data-label="Din tid">Löpande</td>
+                <td role="cell" data-label="Ser proffsig ut"><span class="no">Nej</span></td>
+                <td role="cell" data-label="Du äger den"><span class="no">Nej</span></td>
               </tr>
-              <tr>
-                <th scope="row">Bygga själv (Wix, Squarespace)</th>
-                <td data-label="Kostnad">ofta ~200 kr/mån, för alltid</td>
-                <td data-label="Din tid">Många kvällar</td>
-                <td data-label="Ser proffsig ut">Kanske</td>
-                <td data-label="Du äger den"><span class="no">Nej</span></td>
+              <tr role="row">
+                <th role="rowheader" scope="row">Bygga själv (Wix, Squarespace)</th>
+                <td role="cell" data-label="Kostnad">ofta ~200 kr/mån, för alltid</td>
+                <td role="cell" data-label="Din tid">Många kvällar</td>
+                <td role="cell" data-label="Ser proffsig ut">Kanske</td>
+                <td role="cell" data-label="Du äger den"><span class="no">Nej</span></td>
               </tr>
-              <tr>
-                <th scope="row">En webbyrå</th>
-                <td data-label="Kostnad">ofta 15 000 kr och uppåt</td>
-                <td data-label="Din tid">Möten och underlag</td>
-                <td data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
-                <td data-label="Du äger den"><span class="yes">Ja</span></td>
+              <tr role="row">
+                <th role="rowheader" scope="row">En webbyrå</th>
+                <td role="cell" data-label="Kostnad">ofta 15 000 kr och uppåt</td>
+                <td role="cell" data-label="Din tid">Möten och underlag</td>
+                <td role="cell" data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
+                <td role="cell" data-label="Du äger den"><span class="yes">Ja</span></td>
               </tr>
-              <tr class="mine">
-                <th scope="row">Nilsbuilt</th>
-                <td data-label="Kostnad">från 3 000 kr, en gång</td>
-                <td data-label="Din tid">Ett samtal</td>
-                <td data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
-                <td data-label="Du äger den"><span class="yes">Ja</span></td>
+              <tr role="row" class="mine">
+                <th role="rowheader" scope="row">Nilsbuilt</th>
+                <td role="cell" data-label="Kostnad">från 3 000 kr, en gång</td>
+                <td role="cell" data-label="Din tid">Ett samtal</td>
+                <td role="cell" data-label="Ser proffsig ut"><span class="yes">Ja</span></td>
+                <td role="cell" data-label="Du äger den"><span class="yes">Ja</span></td>
               </tr>
             </tbody>
           </table>
@@ -277,7 +278,7 @@
             <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
           <div class="field">
-            <label for="business">Företagets namn</label>
+            <label for="business">Företagets namn <span style="color:var(--muted);font-weight:500">(valfritt)</span></label>
             <input id="business" name="business" type="text" autocomplete="organization" />
           </div>
           <div class="field">
@@ -286,6 +287,7 @@
           </div>
           <button type="submit" class="btn">Skicka min förfrågan</button>
           <p id="form-status" role="status" aria-live="polite"></p>
+          <p style="color: var(--muted); font-size: 13px; margin-top: 12px; text-align: center;">Uppgifterna skickas till min e-post via tjänsten Web3Forms. Jag delar dem inte med någon annan.</p>
         </form>
       </div>
     </section>
@@ -339,7 +341,7 @@
     </div>
   </footer>
 
-  <div class="stickybar" id="stickybar">
+  <div class="stickybar" id="stickybar" role="region" aria-label="Snabboffert">
     <div class="sp">från 3&nbsp;000 kr<small>Gratis offert, inga månadsavgifter</small></div>
     <a href="#signup" class="btn">Få offert</a>
   </div>
@@ -348,12 +350,16 @@
     const form = document.getElementById("signup-form");
     const statusEl = document.getElementById("form-status");
     const FALLBACK_EMAIL = "olypalsson@gmail.com";
+    let submitting = false;
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      if (btn.disabled) return; // ignorera ett andra klick medan en är på väg
-      btn.disabled = true;
+      // Flagga i stället för btn.disabled: att stänga av knappen man just tryckt på
+      // flyttar tangentbordsfokus till <body> mitt i inskickningen.
+      if (submitting) return;
+      submitting = true;
+      btn.setAttribute("aria-disabled", "true");
       statusEl.style.color = "#64748b";
       statusEl.textContent = "Skickar…";
       const data = Object.fromEntries(new FormData(form));
@@ -370,18 +376,22 @@
           // svar som inte är JSON (t.ex. en felsida) — behandla som misslyckat
         }
         if (res.ok && json && json.success) {
+          statusEl.setAttribute("role", "status");
           form.reset();
           statusEl.style.color = "#15803d";
           statusEl.textContent = "Tack! Din förfrågan är inne — jag hör av mig snart.";
         } else {
+          statusEl.setAttribute("role", "alert");
           statusEl.style.color = "#b91c1c";
           statusEl.textContent = "Något gick fel. Mejla mig direkt: " + FALLBACK_EMAIL;
         }
       } catch {
-        statusEl.style.color = "#b91c1c";
+        statusEl.setAttribute("role", "alert");
+          statusEl.style.color = "#b91c1c";
         statusEl.textContent = "Något gick fel. Mejla mig direkt: " + FALLBACK_EMAIL;
       } finally {
-        btn.disabled = false;
+        submitting = false;
+        btn.removeAttribute("aria-disabled");
       }
     });
 
@@ -400,6 +410,9 @@
         });
       }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
       revealables.forEach((el) => io.observe(el));
+      // Belt and braces: if the observer never delivers, show everything anyway
+      // rather than leave the page blank below the hero.
+      setTimeout(() => revealables.forEach((el) => el.classList.add("in")), 1500);
     }
 
     // Göm den fasta mobilknappen när formuläret ändå syns, så den inte täcker skicka-knappen.

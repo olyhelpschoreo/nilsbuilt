@@ -22,6 +22,7 @@
   --chalk:#f5f4f1;
   --paper:#fbfbf9;
   --stone-line:#c9c9c1;
+  --stone-line-strong:#8f8f86; /* kontrollramar — 3:1 mot bakgrunden */
   --muted:#5a666c;
   --muted-dark:#a9b4b0;
   --accent:#4f7169;
@@ -97,7 +98,7 @@ a{color:inherit}
 .btn--solid:hover{background:var(--accent-deep)}
 .btn--ghost{border-color:var(--stone-line);color:var(--ink);background:transparent}
 .btn--ghost:hover{border-color:var(--ink);background:rgba(18,23,26,.04)}
-.btn--ghostDark{border-color:#39444a;color:var(--chalk);background:transparent}
+.btn--ghostDark{border-color:#6b7a82;color:var(--chalk);background:transparent}
 .btn--ghostDark:hover{border-color:var(--accent-light);background:rgba(245,244,241,.06)}
 .btn--onDark{background:var(--chalk);color:var(--ink)}
 .btn--onDark:hover{background:var(--accent-light)}
@@ -115,7 +116,7 @@ section{scroll-margin-top:5.5rem}
   .split--wide{grid-template-columns:minmax(0,18rem) minmax(0,1fr)}
 }
 .split__head{display:flex;flex-direction:column;gap:.9rem;align-self:start}
-.split__head h2{font-size:var(--step-3)}
+.split__head h2{overflow-wrap:break-word;hyphens:auto;font-size:var(--step-3)}
 .split__lead{color:var(--muted);font-size:var(--step--1);max-width:34ch}
 .band--ink .split__lead{color:var(--muted-dark)}
 .idx{
@@ -150,6 +151,7 @@ section{scroll-margin-top:5.5rem}
 .site-nav{margin-left:auto;display:none}
 .site-nav ul{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2rem)}
 .site-nav a{
+  display:inline-flex;align-items:center;min-height:44px;
   text-decoration:none;font-size:var(--step--1);color:var(--ink-soft);
   padding-block:.35rem;border-bottom:1px solid transparent;
 }
@@ -301,7 +303,7 @@ section{scroll-margin-top:5.5rem}
 .field input,.field select,.field textarea{
   font:inherit;font-size:var(--step--1);color:var(--ink);
   background:var(--paper);
-  border:1px solid var(--stone-line);border-radius:3px;
+  border:1px solid var(--stone-line-strong);border-radius:3px;
   padding:.75rem .85rem;width:100%;
   transition:border-color .16s ease;
 }
@@ -344,7 +346,9 @@ section{scroll-margin-top:5.5rem}
   display:block;font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted-dark);margin-bottom:.15rem;
 }
-.contact-list .v{color:var(--chalk);font-size:var(--step-0);text-decoration:none;line-height:1.35;display:block}
+.contact-list .v{color:var(--chalk);font-size:var(--step-0);line-height:1.35;display:block}
+.contact-list span.v{text-decoration:none}
+.contact-list a.v{text-decoration:underline;text-underline-offset:3px}
 .contact-list a.v:hover{color:var(--accent-light)}
 .contact-list address{font-style:normal}
 
@@ -380,7 +384,7 @@ section{scroll-margin-top:5.5rem}
   padding-top:1.75rem;font-size:.8125rem;
 }
 .footer-bottom ul{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
-.footer-bottom a{text-decoration:none}
+.footer-bottom a{text-decoration:underline;text-underline-offset:3px}
 .footer-bottom a:hover{color:var(--chalk)}
 .demo-note{
   font-size:.75rem;color:#8d9a97;max-width:60ch;
@@ -885,11 +889,30 @@ section{scroll-margin-top:5.5rem}
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+
+    // Formuläret hade novalidate, så required aldrig kontrollerades och en tom
+    // inskickning svarade ändå "Tack!". Kontrollera själva och peka ut felet.
+    if (!form.checkValidity()) {
+      var forsta = form.querySelector(':invalid');
+      status.setAttribute('role', 'alert');
+      status.textContent = 'Fyll i namn och telefonnummer, så återkommer vi med en tid.';
+      if (forsta) { forsta.setAttribute('aria-invalid', 'true'); forsta.focus(); }
+      return;
+    }
+    Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid]'), function (f) {
+      f.removeAttribute('aria-invalid');
+    });
+
     var namn = (document.getElementById('namn').value || '').trim();
-    var halsning = namn ? 'Tack ' + namn + '! ' : 'Tack! ';
-    status.innerHTML = ICON + halsning
+    // Namnet sätts med textContent, aldrig innerHTML — annars kör en inskriven
+    // <img onerror=...> i fältet.
+    status.setAttribute('role', 'status');
+    status.innerHTML = ICON;
+    status.appendChild(document.createTextNode(
+      (namn ? 'Tack ' + namn + '! ' : 'Tack! ')
       + 'Det här är en demo — förfrågan skickas inte vidare någonstans och inga uppgifter sparas. '
-      + 'På en skarp sida hade den landat hos salongen direkt.';
+      + 'På en skarp sida hade den landat hos salongen direkt.'
+    ));
     status.scrollIntoView({ block: 'nearest' });
   });
 })();

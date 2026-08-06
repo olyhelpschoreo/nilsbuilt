@@ -20,20 +20,21 @@
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header>
     <div class="wrap nav">
       <a href="en.html" class="brand">nils<span>built</span></a>
       <div class="nav-right">
         <nav class="langsw" aria-label="Language">
           <a href="./" lang="sv">SV</a>
-          <a href="en.html" aria-current="true" lang="en">EN</a>
+          <a href="en.html" aria-current="page" lang="en">EN</a>
         </nav>
         <a href="#signup" class="btn">Get a website</a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
       <div class="wrap">
         <span class="eyebrow">Websites for small businesses in Stockholm</span>
@@ -44,11 +45,11 @@
           <a href="#how" class="btn ghost">How it works</a>
         </div>
 
-        <p class="trust">
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free preview first</span>
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No monthly fees</span>
-          <span><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ready in days</span>
-        </p>
+        <ul class="trust" role="list">
+          <li><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free preview first</li>
+          <li><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No monthly fees</li>
+          <li><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ready in days</li>
+        </ul>
 
         <div class="mock-stage">
           <div class="mockup" aria-hidden="true">
@@ -64,7 +65,7 @@
                 <span class="mini-links"><span>Menu</span><span>Hours</span><span>Find us</span></span>
               </div>
               <div class="mini-photo">
-                <h4>Fresh bread before the city wakes.</h4>
+                <span class="mock-h4">Fresh bread before the city wakes.</span>
                 <p>Bakery &amp; coffee house on Storgatan</p>
                 <span class="mini-cta">See the menu</span>
               </div>
@@ -80,7 +81,7 @@
             <div class="pscreen">
               <div class="pnav">Café Lyra</div>
               <div class="pphoto">
-                <h5>Fresh bread before the city wakes.</h5>
+                <span class="mock-h5">Fresh bread before the city wakes.</span>
                 <span>See the menu</span>
               </div>
               <div class="pinfo"><i></i><i class="s"></i><i></i><i class="s"></i></div>
@@ -127,7 +128,7 @@
         <p class="lead reveal">Simple, honest pricing — no surprises later.</p>
         <div class="price-box reveal">
           <div class="amount">from 3&nbsp;000 kr <small>/ one-page site</small></div>
-          <ul class="includes">
+          <ul class="includes" role="list">
             <li>Your own site, built for you</li>
             <li>Looks great on every phone</li>
             <li>Your own shareable link</li>
@@ -144,52 +145,52 @@
         <h2 class="reveal">What are your options?</h2>
         <p class="lead reveal">Most small businesses choose between these. Here they are side by side.</p>
         <div class="compare-wrap reveal">
-          <table class="compare">
+          <table class="compare" role="table">
             <caption class="sr-only">Comparison of ways to get a website</caption>
             <thead>
-              <tr>
-                <th scope="col">Option</th>
-                <th scope="col">Cost</th>
-                <th scope="col">Your time</th>
-                <th scope="col">Looks professional</th>
-                <th scope="col">You own it</th>
+              <tr role="row">
+                <th role="columnheader" scope="col">Option</th>
+                <th role="columnheader" scope="col">Cost</th>
+                <th role="columnheader" scope="col">Your time</th>
+                <th role="columnheader" scope="col">Looks professional</th>
+                <th role="columnheader" scope="col">You own it</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">No website</th>
-                <td data-label="Cost">0 kr</td>
-                <td data-label="Your time">None</td>
-                <td data-label="Looks professional"><span class="no">No</span></td>
-                <td data-label="You own it">—</td>
+              <tr role="row">
+                <th role="rowheader" scope="row">No website</th>
+                <td role="cell" data-label="Cost">0 kr</td>
+                <td role="cell" data-label="Your time">None</td>
+                <td role="cell" data-label="Looks professional"><span class="no">No</span></td>
+                <td role="cell" data-label="You own it">—</td>
               </tr>
-              <tr>
-                <th scope="row">Just a Facebook page</th>
-                <td data-label="Cost">0 kr</td>
-                <td data-label="Your time">Ongoing</td>
-                <td data-label="Looks professional"><span class="no">No</span></td>
-                <td data-label="You own it"><span class="no">No</span></td>
+              <tr role="row">
+                <th role="rowheader" scope="row">Just a Facebook page</th>
+                <td role="cell" data-label="Cost">0 kr</td>
+                <td role="cell" data-label="Your time">Ongoing</td>
+                <td role="cell" data-label="Looks professional"><span class="no">No</span></td>
+                <td role="cell" data-label="You own it"><span class="no">No</span></td>
               </tr>
-              <tr>
-                <th scope="row">Build it yourself (Wix, Squarespace)</th>
-                <td data-label="Cost">often ~200 kr/month, forever</td>
-                <td data-label="Your time">Many evenings</td>
-                <td data-label="Looks professional">Maybe</td>
-                <td data-label="You own it"><span class="no">No</span></td>
+              <tr role="row">
+                <th role="rowheader" scope="row">Build it yourself (Wix, Squarespace)</th>
+                <td role="cell" data-label="Cost">often ~200 kr/month, forever</td>
+                <td role="cell" data-label="Your time">Many evenings</td>
+                <td role="cell" data-label="Looks professional">Maybe</td>
+                <td role="cell" data-label="You own it"><span class="no">No</span></td>
               </tr>
-              <tr>
-                <th scope="row">A web agency</th>
-                <td data-label="Cost">often 15 000 kr and up</td>
-                <td data-label="Your time">Meetings and briefs</td>
-                <td data-label="Looks professional"><span class="yes">Yes</span></td>
-                <td data-label="You own it"><span class="yes">Yes</span></td>
+              <tr role="row">
+                <th role="rowheader" scope="row">A web agency</th>
+                <td role="cell" data-label="Cost">often 15 000 kr and up</td>
+                <td role="cell" data-label="Your time">Meetings and briefs</td>
+                <td role="cell" data-label="Looks professional"><span class="yes">Yes</span></td>
+                <td role="cell" data-label="You own it"><span class="yes">Yes</span></td>
               </tr>
-              <tr class="mine">
-                <th scope="row">Nilsbuilt</th>
-                <td data-label="Cost">from 3 000 kr, once</td>
-                <td data-label="Your time">One conversation</td>
-                <td data-label="Looks professional"><span class="yes">Yes</span></td>
-                <td data-label="You own it"><span class="yes">Yes</span></td>
+              <tr role="row" class="mine">
+                <th role="rowheader" scope="row">Nilsbuilt</th>
+                <td role="cell" data-label="Cost">from 3 000 kr, once</td>
+                <td role="cell" data-label="Your time">One conversation</td>
+                <td role="cell" data-label="Looks professional"><span class="yes">Yes</span></td>
+                <td role="cell" data-label="You own it"><span class="yes">Yes</span></td>
               </tr>
             </tbody>
           </table>
@@ -277,7 +278,7 @@
             <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
           <div class="field">
-            <label for="business">Business name</label>
+            <label for="business">Business name <span style="color:var(--muted);font-weight:500">(optional)</span></label>
             <input id="business" name="business" type="text" autocomplete="organization" />
           </div>
           <div class="field">
@@ -286,6 +287,7 @@
           </div>
           <button type="submit" class="btn">Send my request</button>
           <p id="form-status" role="status" aria-live="polite"></p>
+          <p style="color: var(--muted); font-size: 13px; margin-top: 12px; text-align: center;">Your details are sent to my email through the Web3Forms service. I do not share them with anyone else.</p>
         </form>
       </div>
     </section>
@@ -339,7 +341,7 @@
     </div>
   </footer>
 
-  <div class="stickybar" id="stickybar">
+  <div class="stickybar" id="stickybar" role="region" aria-label="Quick quote">
     <div class="sp">from 3&nbsp;000 kr<small>Free quote, no monthly fees</small></div>
     <a href="#signup" class="btn">Get a quote</a>
   </div>
@@ -348,12 +350,16 @@
     const form = document.getElementById("signup-form");
     const statusEl = document.getElementById("form-status");
     const FALLBACK_EMAIL = "olypalsson@gmail.com";
+    let submitting = false;
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      if (btn.disabled) return; // ignore a second click while one is in flight
-      btn.disabled = true;
+      // A flag rather than btn.disabled: disabling the button you just pressed
+      // throws keyboard focus to <body> in the middle of submitting.
+      if (submitting) return;
+      submitting = true;
+      btn.setAttribute("aria-disabled", "true");
       statusEl.style.color = "#64748b";
       statusEl.textContent = "Sending…";
       const data = Object.fromEntries(new FormData(form));
@@ -370,18 +376,22 @@
           // non-JSON response (e.g. a server error page) — treat as a failed submit
         }
         if (res.ok && json && json.success) {
+          statusEl.setAttribute("role", "status");
           form.reset();
           statusEl.style.color = "#15803d";
           statusEl.textContent = "Thanks! Your request is in — I'll be in touch soon.";
         } else {
+          statusEl.setAttribute("role", "alert");
           statusEl.style.color = "#b91c1c";
           statusEl.textContent = "Something went wrong. Email me directly: " + FALLBACK_EMAIL;
         }
       } catch {
-        statusEl.style.color = "#b91c1c";
+        statusEl.setAttribute("role", "alert");
+          statusEl.style.color = "#b91c1c";
         statusEl.textContent = "Something went wrong. Email me directly: " + FALLBACK_EMAIL;
       } finally {
-        btn.disabled = false;
+        submitting = false;
+        btn.removeAttribute("aria-disabled");
       }
     });
 
@@ -400,6 +410,9 @@
         });
       }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
       revealables.forEach((el) => io.observe(el));
+      // Belt and braces: if the observer never delivers, show everything anyway
+      // rather than leave the page blank below the hero.
+      setTimeout(() => revealables.forEach((el) => el.classList.add("in")), 1500);
     }
 
     // Hide the fixed mobile bar while the form is on screen so it can't cover the submit button.

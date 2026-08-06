@@ -30,6 +30,7 @@
     --on-dark:    #FBF6EE;
     --on-dark-soft:#C8B4A0;
     --rule:       #D9C7AC;
+    --rule-strong: #A98D63;  /* kontrollramar — 3:1, till skillnad från --rule */
 
     --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -134,7 +135,7 @@
   .btn-primary:hover{ background:var(--ink); transform:translateY(-2px); }
   .btn-ghost{
     color:var(--ink);
-    border-color:var(--rule);
+    border-color:var(--rule-strong);
     background:transparent;
   }
   .btn-ghost:hover{ border-color:var(--ink); transform:translateY(-2px); }
@@ -539,14 +540,20 @@
 
   .find-details{ margin-bottom:2rem; display:grid; gap:1.25rem; }
   .detail{
-    display:flex; gap:.9rem; align-items:flex-start;
+    display:grid; grid-template-columns:22px 1fr; column-gap:.9rem; row-gap:.15rem;
   }
-  .detail svg{ flex:none; color:var(--amber-deep); margin-top:.2rem; }
+  .detail svg{ flex:none; color:var(--amber-deep); }
   .detail dt{
+    display:contents;
     font-size:.75rem; font-weight:700; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--ink-soft); margin-bottom:.15rem;
+    text-transform:uppercase; color:var(--ink-soft);
   }
-  .detail dd{ margin:0; font-size:1.05rem; }
+  .detail dt span{
+    grid-column:2; align-self:center;
+    font-size:.75rem; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .detail dd{ grid-column:2; margin:0; font-size:1.05rem; }
   .detail dd a{ color:var(--ink); text-decoration-color:var(--amber); text-underline-offset:3px; }
   .detail dd a:hover{ color:var(--amber-deep); }
 
@@ -635,7 +642,7 @@
     font-size:.85rem;
     color:var(--on-dark-soft);
   }
-  .footer-bottom a{ color:var(--on-dark-soft); }
+  .footer-bottom a{ color:var(--on-dark-soft); text-decoration:underline; text-underline-offset:3px; }
   .footer-bottom a:hover{ color:var(--gold); }
   /* Sidan ser äkta ut med avsikt, så den måste säga rakt ut att företaget är påhittat. */
   .demo-note{
@@ -1079,33 +1086,24 @@
 
         <dl class="find-details">
           <div class="detail">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <dt><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.6"></circle>
-            </svg>
-            <div>
-              <dt>Adress</dt>
-              <dd>Storgatan 4, 114 51 Stockholm</dd>
-            </div>
+            </svg><span>Adress</span></dt>
+            <dd>Storgatan 4, 114 51 Stockholm</dd>
           </div>
           <div class="detail">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <dt><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M6.5 3h3l1.5 4.5-2 1.4a12 12 0 0 0 6.1 6.1l1.4-2L21 14.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3Z"></path>
-            </svg>
-            <div>
-              <dt>Telefon</dt>
-              <dd><a href="tel:+46701234567">070-123 45 67</a></dd>
-            </div>
+            </svg><span>Telefon</span></dt>
+            <dd><a href="tel:+46701234567">070-123 45 67</a></dd>
           </div>
           <div class="detail">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <dt><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <rect x="5" y="3.5" width="14" height="13" rx="3"></rect>
               <path d="M5 11h14"></path><path d="m8 16.5-2 4"></path><path d="m16 16.5 2 4"></path>
               <path d="M8.5 13.8h.01"></path><path d="M15.5 13.8h.01"></path>
-            </svg>
-            <div>
-              <dt>Kollektivt</dt>
-              <dd>Östermalmstorg, fyra minuters promenad</dd>
-            </div>
+            </svg><span>Kollektivt</span></dt>
+            <dd>Östermalmstorg, fyra minuters promenad</dd>
           </div>
         </dl>
 
@@ -1123,7 +1121,7 @@
               <path d="M46 262c6-10 4-18 0-24"></path><path d="M40 240c8-4 14-2 18 4"></path>
               <path d="M96 284c6-10 4-18 0-24"></path><path d="M90 262c8-4 14-2 18 4"></path>
             </g>
-            <text x="40" y="300" font-family="Georgia, serif" font-size="15" fill="#6B5443">Humlegården</text>
+            <text x="40" y="300">Humlegården</text>
 
             <!-- gator, skissade -->
             <g stroke="#C6B08C" stroke-width="17" stroke-linecap="round" fill="none">
@@ -1151,14 +1149,14 @@
             </g>
 
             <!-- gatunamn -->
-            <text x="60" y="132" font-family="Georgia, serif" font-size="16" fill="#6B5443">Storgatan</text>
-            <text x="352" y="316" font-family="Georgia, serif" font-size="15" fill="#6B5443" transform="rotate(-88 352 316)">Grev Turegatan</text>
+            <text x="60" y="132">Storgatan</text>
+            <text x="352" y="316" transform="rotate(-88 352 316)">Grev Turegatan</text>
 
             <!-- tunnelbana -->
             <g transform="translate(438 262)">
               <circle cx="0" cy="0" r="15" fill="#2B1D12"></circle>
               <path d="M-6 5V-5h4l2 4 2-4h4v10" fill="none" stroke="#FBF6EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-              <text x="0" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#6B5443">Östermalmstorg</text>
+              <text x="0" y="34" text-anchor="middle">Östermalmstorg</text>
             </g>
 
             <!-- Café Lyra: markören -->
@@ -1166,7 +1164,7 @@
               <ellipse cx="0" cy="4" rx="16" ry="5" fill="#2B1D12" opacity=".2"></ellipse>
               <path d="M0 2C0 2-17-16-17-27a17 17 0 1 1 34 0C17-16 0 2 0 2Z" fill="#B4531B" stroke="#2B1D12" stroke-width="3"></path>
               <circle cx="0" cy="-27" r="6.5" fill="#FBF6EE"></circle>
-              <text class="map-here" x="0" y="-46" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#2B1D12">Café Lyra</text>
+              <text class="map-here" x="0" y="-46" text-anchor="middle">Café Lyra</text>
             </g>
           </svg>
           <p class="map-caption">Hörnet Storgatan / Grev Turegatan. Den gröna dörren med mässingshandtaget.</p>
