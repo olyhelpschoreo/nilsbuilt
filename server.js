@@ -18,7 +18,9 @@ const TYPES = {
 http
   .createServer((req, res) => {
     const urlPath = decodeURIComponent(req.url.split("?")[0]);
-    const rel = urlPath === "/" ? "index.html" : urlPath.replace(/^\/+/, "");
+    // Match GitHub Pages: a path ending in "/" serves that folder's index.html.
+    const withIndex = urlPath.endsWith("/") ? urlPath + "index.html" : urlPath;
+    const rel = withIndex.replace(/^\/+/, "") || "index.html";
     const file = path.join(ROOT, rel);
     if (!file.startsWith(ROOT)) {
       res.writeHead(403).end("Forbidden");
