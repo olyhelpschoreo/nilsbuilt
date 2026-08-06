@@ -110,7 +110,7 @@
   }
   .on-dark .eyebrow{ color:var(--gold); }
 
-  section, #hitta-hit{ scroll-margin-top:130px; }
+  section, #oppettider, #hitta-hit{ scroll-margin-top:130px; }
 
   /* --- buttons ------------------------------------------------ */
   .btn{
@@ -202,7 +202,7 @@
     .site-nav{ order:3; width:100%; border-top:1px solid var(--rule); padding-top:.5rem; }
     .site-nav ul{ justify-content:space-between; gap:.5rem; }
     .site-nav a{ font-size:.88rem; }
-    section, #hitta-hit{ scroll-margin-top:124px; }
+    section, #oppettider, #hitta-hit{ scroll-margin-top:124px; }
   }
   /* keep wordmark + call button on one row down to 320px */
   @media (max-width:599px){
@@ -557,6 +557,23 @@
     background:var(--sand);
   }
   .map-frame svg{ width:100%; height:auto; }
+  /* Kartetiketter sätts som på en riktig karta — liten, spärrad sans, inte rubrikserifen.
+     CSS vinner över SVG:ns presentationsattribut, så detta styr alla texter i kartan. */
+  .map-frame svg text{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    fill:#8A7259;
+  }
+  .map-frame svg text.map-here{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:none;
+    fill:#2B1D12;
+  }
   .map-caption{
     padding:.85rem 1.1rem;
     background:var(--cream);
@@ -869,7 +886,7 @@
         </p>
         <p class="signature">
           <span class="line" aria-hidden="true"></span>
-          Elin &amp; Johan Wikander, bagare och värdar
+          Maja &amp; Anton Wikander, bagare och värdar
         </p>
       </div>
     </div>
@@ -1018,12 +1035,12 @@
   </section>
 
   <!-- ============ ÖPPETTIDER + HITTA HIT ============ -->
-  <section class="visit" id="oppettider" aria-labelledby="besok-rubrik">
+  <section class="visit" aria-label="Besök oss">
     <div class="wrap visit-grid">
 
-      <div>
+      <div id="oppettider">
         <p class="eyebrow">Öppettider</p>
-        <h2 id="besok-rubrik">Vi står vid ugnen från fem</h2>
+        <h2>Vi står vid ugnen från fem</h2>
         <div class="card">
           <ul class="hours">
             <li><span class="day">Måndag–fredag</span> <span class="time">07.00–17.00</span></li>
@@ -1098,7 +1115,7 @@
               <path d="M46 262c6-10 4-18 0-24"></path><path d="M40 240c8-4 14-2 18 4"></path>
               <path d="M96 284c6-10 4-18 0-24"></path><path d="M90 262c8-4 14-2 18 4"></path>
             </g>
-            <text x="52" y="300" font-family="Georgia, serif" font-size="15" fill="#6B5443">Humlegården</text>
+            <text x="40" y="300" font-family="Georgia, serif" font-size="15" fill="#6B5443">Humlegården</text>
 
             <!-- gator, skissade -->
             <g stroke="#C6B08C" stroke-width="17" stroke-linecap="round" fill="none">
@@ -1133,7 +1150,7 @@
             <g transform="translate(438 262)">
               <circle cx="0" cy="0" r="15" fill="#2B1D12"></circle>
               <path d="M-6 5V-5h4l2 4 2-4h4v10" fill="none" stroke="#FBF6EE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
-              <text x="22" y="5" font-family="Georgia, serif" font-size="14" fill="#6B5443">Östermalmstorg</text>
+              <text x="0" y="34" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#6B5443">Östermalmstorg</text>
             </g>
 
             <!-- Café Lyra: markören -->
@@ -1141,7 +1158,7 @@
               <ellipse cx="0" cy="4" rx="16" ry="5" fill="#2B1D12" opacity=".2"></ellipse>
               <path d="M0 2C0 2-17-16-17-27a17 17 0 1 1 34 0C17-16 0 2 0 2Z" fill="#B4531B" stroke="#2B1D12" stroke-width="3"></path>
               <circle cx="0" cy="-27" r="6.5" fill="#FBF6EE"></circle>
-              <text x="0" y="-46" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#2B1D12">Café Lyra</text>
+              <text class="map-here" x="0" y="-46" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#2B1D12">Café Lyra</text>
             </g>
           </svg>
           <p class="map-caption">Hörnet Storgatan / Grev Turegatan. Den gröna dörren med mässingshandtaget.</p>
@@ -1183,7 +1200,7 @@
     </div>
 
     <p class="footer-bottom">
-      <span>&copy; 2026 Café Lyra AB &middot; Org.nr 556123-4567</span>
+      <span>&copy; 2026 Café Lyra</span>
       <span>Webbplats av Nilsbuilt</span>
     </p>
   </div>
