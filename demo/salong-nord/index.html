@@ -36,7 +36,7 @@
   --step-1:clamp(1.1875rem, 1.11rem + 0.36vw, 1.4375rem);
   --step-2:clamp(1.4375rem, 1.28rem + 0.75vw, 1.9375rem);
   --step-3:clamp(1.75rem, 1.44rem + 1.5vw, 2.75rem);
-  --step-4:clamp(2.25rem, 1.55rem + 3.4vw, 4.5rem);
+  --step-4:clamp(2.25rem, 1.62rem + 3.05vw, 4rem);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -177,7 +177,7 @@ section{scroll-margin-top:5.5rem}
 @media (min-width:64rem){
   .hero__in{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
 }
-.hero__copy{display:flex;flex-direction:column;gap:1.5rem;max-width:34rem}
+.hero__copy{display:flex;flex-direction:column;gap:1.5rem;max-width:36rem}
 .hero h1{
   color:var(--chalk);font-size:var(--step-4);letter-spacing:-0.03em;line-height:1.02;
 }
@@ -452,12 +452,12 @@ section{scroll-margin-top:5.5rem}
             <path id="sn-strand" d="M-60 0C40 60 120 -30 210 40S350 90 470 30"/>
             <path id="sn-strand-b" d="M-60 0C60 40 110 -50 220 20S360 60 470 -10"/>
             <linearGradient id="sn-fade" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#8fb0a6" stop-opacity=".05"/>
-              <stop offset=".45" stop-color="#8fb0a6" stop-opacity=".85"/>
-              <stop offset="1" stop-color="#f5f4f1" stop-opacity=".55"/>
+              <stop offset="0" stop-color="#8fb0a6" stop-opacity=".22"/>
+              <stop offset=".42" stop-color="#a8c6bc" stop-opacity="1"/>
+              <stop offset="1" stop-color="#f5f4f1" stop-opacity=".6"/>
             </linearGradient>
           </defs>
-          <g stroke="url(#sn-fade)" fill="none" stroke-width="1.1" stroke-linecap="round">
+          <g stroke="url(#sn-fade)" fill="none" stroke-width="1.25" stroke-linecap="round">
             <g class="drift-a">
               <use href="#sn-strand" y="46"/>
               <use href="#sn-strand-b" y="82"/>
@@ -475,8 +475,8 @@ section{scroll-margin-top:5.5rem}
               <use href="#sn-strand" y="442"/>
             </g>
           </g>
-          <circle cx="316" cy="96" r="52" fill="none" stroke="#8fb0a6" stroke-width="1" opacity=".45"/>
-          <circle cx="316" cy="96" r="86" fill="none" stroke="#8fb0a6" stroke-width="1" opacity=".2"/>
+          <circle cx="316" cy="96" r="52" fill="none" stroke="#8fb0a6" stroke-width="1" opacity=".6"/>
+          <circle cx="316" cy="96" r="86" fill="none" stroke="#8fb0a6" stroke-width="1" opacity=".32"/>
         </svg>
         <p class="strands__rule">
           <span>Est. 2016</span>
